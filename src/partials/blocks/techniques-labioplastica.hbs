@@ -1,0 +1,43 @@
+<section class="section section--tinted section--center techniques" id="techniques" aria-labelledby="techniques-title">
+  <div class="dart-container">
+
+    <div class="section__header techniques__header reveal">
+      <span class="section__eyebrow">{{techniques.eyebrow}}</span>
+      <h2 id="techniques-title">{{techniques.title}}</h2>
+      <p class="section__desc">{{techniques.text}}</p>
+    </div>
+
+    <ul class="techniques__grid">
+      {{#each techniques.items}}
+      <li class="techniques__card reveal">
+        <span class="techniques__icon">
+          <i class="{{this.icon}}" aria-hidden="true"></i>
+        </span>
+        <h3 class="techniques__card-title">{{this.title}}</h3>
+        <p class="techniques__card-text">{{this.text}}</p>
+      </li>
+      {{/each}}
+    </ul>
+
+    <div class="techniques__cta reveal">
+      <div class="techniques__cta-main">
+        <span class="techniques__cta-icon">
+          <i class="fa-solid fa-user-doctor" aria-hidden="true"></i>
+        </span>
+        <p class="techniques__cta-text">{{techniques.cta.text}}</p>
+      </div>
+      <button
+        type="button"
+        class="dart-btn dart-btn-primary"
+        data-modal-open
+        data-modal-message="{{techniques.cta.message}}"
+        aria-haspopup="dialog"
+        aria-controls="booking-modal"
+      >
+        {{techniques.cta.label}}
+        <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+      </button>
+    </div>
+
+  </div>
+</section>

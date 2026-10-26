@@ -1,0 +1,94 @@
+<section class="hero">
+  <div class="hero__bg" aria-hidden="true">
+    <img src="/assets/img/placeholders/hero-bg.svg" alt="" width="1440" height="900" fetchpriority="high">
+  </div>
+
+  <div class="dart-container hero__inner">
+
+    <div class="hero__col hero__col--text">
+      <span class="hero__eyebrow">
+        <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+        {{hero.eyebrow}}
+      </span>
+
+      <h1 class="hero__title">{{hero.title}}</h1>
+
+      <p class="hero__subtitle">{{hero.subtitle}}</p>
+
+      <div class="hero__actions">
+        <a href="{{hero.primaryCta.href}}" class="dart-btn dart-btn-primary dart-btn-large">
+          {{hero.primaryCta.label}}
+          <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+        </a>
+        <a href="{{hero.secondaryCta.href}}" class="dart-btn dart-btn-outline dart-btn-large">
+          <i class="fa-solid fa-tag" aria-hidden="true"></i>
+          {{hero.secondaryCta.label}}
+        </a>
+      </div>
+
+      <div class="hero__tels">
+        <a href="tel:{{site.phoneHref}}" class="hero__tel">
+          <i class="fa-solid fa-phone-volume" aria-hidden="true"></i>
+          {{site.phone}}
+        </a>
+        <span class="hero__tel-note">
+          <i class="fa-solid fa-clock" aria-hidden="true"></i>
+          Отвечаем в рабочее время, {{site.hoursShort}}
+        </span>
+      </div>
+
+      <ul class="hero__points">
+        {{#each hero.points}}
+        <li>{{this}}</li>
+        {{/each}}
+      </ul>
+
+      <div class="hero__facts">
+        {{#each hero.facts}}
+        <div class="hero__fact{{#if this.accent}} hero__fact--accent{{/if}}">
+          <i class="{{this.icon}}" aria-hidden="true"></i>
+          <div class="hero__fact-body">
+            <span class="hero__fact-value">{{this.value}}</span>
+            <span class="hero__fact-label">{{this.label}}</span>
+          </div>
+        </div>
+        {{/each}}
+      </div>
+    </div>
+
+    <div class="hero__col hero__col--media">
+      <figure class="hero__compare" data-compare>
+        <div class="hero__compare-stage" data-compare-stage>
+          <img class="hero__compare-img hero__compare-img--before"
+               src="{{hero.compare.before}}"
+               alt="{{hero.compare.alt}}"
+               width="1000" height="750" fetchpriority="high">
+          <img class="hero__compare-img hero__compare-img--after hero__compare-clip"
+               data-compare-clip
+               src="{{hero.compare.after}}"
+               alt="{{hero.compare.alt}}"
+               width="1000" height="750" fetchpriority="high">
+
+          <span class="hero__compare-tag hero__compare-tag--before">{{hero.compare.beforeLabel}}</span>
+          <span class="hero__compare-tag hero__compare-tag--after">{{hero.compare.afterLabel}}</span>
+
+          <button type="button" class="hero__compare-handle" data-compare-handle
+                  aria-label="Перетащите, чтобы сравнить до и после"
+                  aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" role="slider">
+            <span></span><span></span>
+          </button>
+        </div>
+        <figcaption class="hero__compare-caption">
+          <span class="hero__compare-title">{{hero.compare.title}}</span>
+          <span class="hero__compare-note">{{hero.compare.note}}</span>
+        </figcaption>
+      </figure>
+
+      <a href="#portfolio" class="hero__compare-link dart-link-arrow">
+        Смотреть все работы
+        <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+      </a>
+    </div>
+
+  </div>
+</section>

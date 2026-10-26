@@ -1,0 +1,43 @@
+<section class="section process" id="process">
+  <div class="dart-container">
+
+    <div class="section__header process__header">
+      <div>
+        <span class="section__eyebrow">Этапы работы</span>
+        <h2>От заявки до результата — понятный путь</h2>
+      </div>
+      <p class="section__desc">
+        Опишите, что происходит на каждом этапе и сколько времени это занимает.
+        Клиенту проще решиться, когда процесс прозрачен.
+      </p>
+    </div>
+
+    <ol class="process__grid">
+      {{#each process}}
+      <li class="process__step reveal">
+        <span class="process__num">0{{inc @index}}</span>
+        <span class="process__icon"><i class="{{this.icon}}" aria-hidden="true"></i></span>
+        <div class="process__body">
+          <h3 class="process__title">{{this.title}}</h3>
+          <p class="process__text">{{this.text}}</p>
+        </div>
+        <span class="process__meta"><i class="fa-regular fa-clock" aria-hidden="true"></i> {{this.meta}}</span>
+      </li>
+      {{/each}}
+    </ol>
+
+    <div class="process__cta">
+      <p class="process__cta-text">
+        <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+        Первый шаг — самый простой: оставьте заявку, специалист перезвонит и уточнит детали.
+      </p>
+      <div class="process__cta-actions">
+        <a href="#booking" class="dart-btn dart-btn-primary">Оставить заявку</a>
+        <a href="tel:{{site.phoneHref}}" class="dart-btn dart-btn-outline">
+          <i class="fa-solid fa-phone" aria-hidden="true"></i> {{site.phone}}
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>

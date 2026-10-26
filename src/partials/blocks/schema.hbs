@@ -1,0 +1,8 @@
+<script type="application/ld+json">{{json schema.organization}}</script>
+{{#if page}}
+{{#if page.schema}}<script type="application/ld+json">{{json page.schema}}</script>{{/if}}
+{{#if page.breadcrumbSchema}}<script type="application/ld+json">{{json page.breadcrumbSchema}}</script>{{/if}}
+{{else}}
+<script type="application/ld+json">{{json schema.faqPage}}</script>
+<script type="application/ld+json">{{json schema.breadcrumb}}</script>
+{{/if}}

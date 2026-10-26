@@ -1,0 +1,83 @@
+<section class="section portfolio" id="portfolio">
+  <div class="dart-container">
+
+    <div class="section__header portfolio__header">
+      <div>
+        <span class="section__eyebrow">Портфолио</span>
+        <h2>Примеры работ до и после</h2>
+      </div>
+      <p class="section__desc">
+        Покажите, как задача выглядела до и что получилось в результате.
+        Фильтры помогают быстро выбрать нужную категорию.
+      </p>
+    </div>
+
+    <div class="dart-chips portfolio__filters" role="group" aria-label="Фильтр работ">
+      {{#each caseFilters}}
+      <button type="button" class="dart-chips__btn{{#if @index}}{{else}} is-active{{/if}}"
+              data-case-filter="{{this.id}}" aria-pressed="{{#if @index}}false{{else}}true{{/if}}">
+        {{this.label}}
+      </button>
+      {{/each}}
+    </div>
+
+    <ul class="portfolio__grid" data-case-grid>
+      {{#each cases}}
+      <li class="case" data-case-filters="{{#each this.filters}} {{this}}{{/each}}">
+        <figure class="case__figure" data-compare>
+          <div class="case__stage" data-compare-stage>
+            <img class="case__img case__img--before"
+                 src="/assets/img/placeholders/case-{{this.slug}}-before.svg"
+                 alt="{{this.title}} до работы"
+                 width="1000" height="750" loading="lazy">
+            <img class="case__img case__img--after case__clip"
+                 data-compare-clip
+                 src="/assets/img/placeholders/case-{{this.slug}}-after.svg"
+                 alt="{{this.title}} после работы"
+                 width="1000" height="750" loading="lazy">
+
+            <span class="case__tag case__tag--before">До</span>
+            <span class="case__tag case__tag--after">После</span>
+
+            <button type="button" class="case__handle" data-compare-handle
+                    aria-label="Сравнить до и после: {{this.title}}"
+                    aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" role="slider">
+              <span></span><span></span>
+            </button>
+          </div>
+
+          <figcaption class="case__caption">
+            <h3 class="case__breed">{{this.title}}</h3>
+            <p class="case__task">{{this.task}}</p>
+            <dl class="case__meta">
+              <div><dt>Объём</dt><dd>{{this.scope}}</dd></div>
+              <div><dt>Срок</dt><dd>{{this.duration}}</dd></div>
+              <div><dt>Специалист</dt><dd>{{this.specialist}}</dd></div>
+              <div><dt>Стоимость</dt><dd>{{this.price}}</dd></div>
+            </dl>
+          </figcaption>
+        </figure>
+
+        <a href="#booking" class="case__cta">
+          Хочу так же
+          <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+        </a>
+      </li>
+      {{/each}}
+    </ul>
+
+    <div class="portfolio__bottom">
+      <p class="portfolio__note">
+        <i class="fa-solid fa-images" aria-hidden="true"></i>
+        {{portfolioNote}}
+      </p>
+      <div class="portfolio__bottom-actions">
+        <a href="#booking" class="dart-btn dart-btn-primary">Оставить заявку</a>
+        <a href="tel:{{site.phoneHref}}" class="dart-btn dart-btn-outline">
+          <i class="fa-solid fa-phone" aria-hidden="true"></i> Спросить по телефону
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>

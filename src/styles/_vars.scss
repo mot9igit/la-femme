@@ -1,0 +1,104 @@
+// ============================================================
+//  Design tokens
+//  Палитра: mint #87E7EA, lilac #E9A7C4.
+//  Контрастные варианты используются для текста и CTA (WCAG AA).
+// ============================================================
+
+// ---- breakpoints (взяты из galileo2026, чтобы сетка совпадала) ----
+$desktop:        "1800px"; // d-col-xxl-{1-12}
+$small-desktop:  "1200px"; // d-col-xl-{1-12}
+$tablets:        "991px";  // d-col-lg-{1-12}
+$small-tablets:  "768px";  // d-col-md-{1-12}
+$big-phones:     "611px";  // d-col-sm-{1-12}
+$phones:         "430px";  // from 0  d-col-{1-12}
+
+$main-padding:     32px;
+$main-padding-md:  24px;
+
+// ---- шкала отступов (шаг 4px) ----
+// Единый ритм вместо произвольных значений по всему проекту.
+$space-1:  4px;
+$space-2:  8px;
+$space-3:  12px;
+$space-4:  16px;
+$space-5:  20px;
+$space-6:  24px;
+$space-7:  32px;
+$space-8:  40px;
+$space-9:  48px;
+$space-10: 56px;
+$space-11: 64px;
+$space-12: 72px;
+$space-13: 96px;
+$space-14: 88px;
+
+// ---- вертикальный ритм секций ----
+$section-y:        $space-13; //  96px
+$section-y-md:     $space-12; //  72px
+$section-y-sm:     $space-9;  //  48px
+$section-y-compact:     $space-11; // 64px
+$section-y-compact-md: $space-9;  // 48px
+$section-y-compact-sm: $space-8;  // 40px
+
+// ---- прочее ----
+$hover-lift: -3px; // подъём карточек при наведении, везде одинаковый
+
+$radius-xs:  8px;
+$radius-sm:  12px;
+$radius:     20px;
+$radius-lg:  28px;
+$radius-xl:  40px;
+$radius-pill: 100px;
+
+$shadow-sm: 0 2px 8px rgba(23, 20, 31, 0.05);
+$shadow:    0 10px 30px rgba(23, 20, 31, 0.07);
+$shadow-lg: 0 24px 60px rgba(23, 20, 31, 0.12);
+
+:root {
+  // бренд
+  --brand-mint:   #87E7EA;
+  --brand-lilac:  #E9A7C4;
+  --brand-mint-soft:  #E7FAFB;
+  --brand-lilac-soft: #FBEAF2;
+
+  // рабочие (контрастные) цвета
+  --primary-color: #C63678;
+  --primary-hover: #A82A61;
+  --primary-soft:  #FBEAF2;
+  --secondary-color: #0F766E; // teal-700 — акценты, цифры
+  --secondary-soft:  #E7FAFB;
+
+  --cta-gradient: linear-gradient(135deg, #C63678 0%, #D24584 55%, #E15C94 100%);
+
+  // текст / поверхности
+  --primary-bg: #17141F;
+  --text:       #17141F;
+  --text-soft:  #55525F;
+  --text-muted: #83808F;
+  --bg:         #FFFFFF;
+  --surface:    #F8F7FC;
+  --surface-2:  #F1EFF9;
+  --border:     #E8E5F2;
+  --border-2:   #D9D4EA;
+
+  --white: #FFFFFF;
+
+  --header-h: 140px;
+
+  --main-padding: 32px;
+
+  // единый фокус для всех интерактивных элементов
+  --focus-ring: 0 0 0 3px rgba(198, 54, 120, .3);
+}
+
+@media (max-width: $small-desktop) {
+  :root {
+    --main-padding: 24px;
+  }
+}
+
+@media (max-width: $tablets) {
+  :root {
+    --header-h: 72px;
+  }
+}

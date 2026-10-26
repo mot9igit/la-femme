@@ -1,0 +1,247 @@
+@use '../vars' as *;
+
+// ============================================================
+//  ЛИЦЕНЗИИ И КЛИНИКА
+// ============================================================
+
+.licenses__grid {
+  display: grid;
+  grid-template-columns: minmax(0, .94fr) minmax(0, 1.06fr);
+  gap: clamp(32px, 5vw, 72px);
+  align-items: start;
+}
+
+.licenses__content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.licenses__content h2 {
+  font-size: clamp(38px, 4.2vw, 56px);
+}
+
+.licenses__lead {
+  max-width: 580px;
+  margin-top: 18px;
+  color: var(--text-soft);
+  font-size: 18px;
+  line-height: 1.65;
+}
+
+.licenses__benefits {
+  display: grid;
+  gap: 10px;
+  width: 100%;
+  margin-top: 28px;
+}
+
+.licenses__benefit {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 15px 18px;
+  border: 1.5px solid var(--border);
+  border-radius: $radius-sm;
+  background: var(--white);
+  box-shadow: $shadow-sm;
+  color: var(--text);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.licenses__benefit-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--secondary-soft);
+  color: var(--secondary-color);
+  font-size: 17px;
+}
+
+.licenses__clinic {
+  position: relative;
+  width: 100%;
+  margin-top: 24px;
+  overflow: hidden;
+  aspect-ratio: 1920 / 800;
+  border-radius: $radius;
+  background: var(--surface);
+  box-shadow: $shadow;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 50% 0 0;
+    background: linear-gradient(180deg, transparent 0%, rgba(23, 20, 31, .62) 100%);
+    pointer-events: none;
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  figcaption {
+    position: absolute;
+    left: 18px;
+    right: 18px;
+    bottom: 16px;
+    z-index: 1;
+    color: var(--white);
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.35;
+    text-shadow: 0 1px 12px rgba(23, 20, 31, .4);
+  }
+}
+
+.licenses__documents {
+  display: flex;
+  flex-direction: column;
+}
+
+.licenses__docs {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.licenses__doc {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 12px;
+  border: 1.5px solid var(--border);
+  border-radius: $radius;
+  background: var(--white);
+  box-shadow: $shadow-sm;
+
+  figcaption {
+    display: grid;
+    gap: 4px;
+    padding: 14px 4px 2px;
+  }
+
+  strong {
+    color: var(--text);
+    font-size: 15px;
+    line-height: 1.3;
+  }
+
+  span {
+    color: var(--text-muted);
+    font-size: 12px;
+    line-height: 1.45;
+  }
+}
+
+.licenses__doc-link {
+  display: block;
+  overflow: hidden;
+  aspect-ratio: 1357 / 1920;
+  border-radius: $radius-sm;
+  background: #F4F4F4;
+
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    transition: transform .35s ease;
+  }
+
+  &:hover img {
+    transform: scale(1.02);
+  }
+}
+
+.licenses__hint {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-top: 14px;
+  color: var(--text-muted);
+  font-size: 13px;
+  line-height: 1.4;
+
+  i {
+    flex: 0 0 auto;
+    margin-top: 2px;
+    color: var(--primary-color);
+  }
+}
+
+@media (max-width: $tablets) {
+  .licenses__grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 36px;
+  }
+
+  .licenses__content h2 {
+    font-size: 32px;
+  }
+
+  .licenses__lead {
+    font-size: 17px;
+  }
+
+  .licenses__clinic {
+    max-width: 640px;
+  }
+
+  .licenses__documents {
+    max-width: 720px;
+  }
+}
+
+@media (max-width: $big-phones) {
+  .licenses__benefit {
+    padding: 13px 14px;
+    font-size: 15px;
+  }
+
+  .licenses__benefit-icon {
+    width: 38px;
+    height: 38px;
+    font-size: 15px;
+  }
+
+  .licenses__docs {
+    gap: 12px;
+  }
+
+  .licenses__doc {
+    padding: 9px;
+
+    strong {
+      font-size: 14px;
+    }
+
+    span {
+      font-size: 11px;
+    }
+  }
+}
+
+@media (max-width: $phones) {
+  .licenses__docs {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .licenses__doc {
+    max-width: 360px;
+  }
+
+  .licenses__clinic {
+    aspect-ratio: 3 / 2;
+  }
+}

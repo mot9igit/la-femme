@@ -1,0 +1,15 @@
+<section class="trust" aria-label="Наши преимущества">
+  <div class="dart-container">
+    <ul class="trust__grid">
+      {{#each trust}}
+      <li class="trust__item reveal">
+        <span class="trust__icon"><i class="{{this.icon}}" aria-hidden="true"></i></span>
+        <div class="trust__body">
+          <h3 class="trust__title">{{this.title}}</h3>
+          <p class="trust__text">{{this.text}}</p>
+        </div>
+      </li>
+      {{/each}}
+    </ul>
+  </div>
+</section>

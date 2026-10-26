@@ -1,0 +1,77 @@
+<dialog class="modal" id="booking-modal" data-modal aria-labelledby="booking-modal-title">
+  <div class="modal__inner">
+
+    <button type="button" class="modal__close" data-modal-close aria-label="Закрыть окно">
+      <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+    </button>
+
+    <div class="modal__head">
+      <span class="modal__eyebrow">Запись на прием</span>
+      <h2 class="modal__title" id="booking-modal-title">Оставьте заявку</h2>
+      <p class="modal__text">
+        Перезвоним в течение рабочего дня, уточним детали и подберём удобное время приёма.
+      </p>
+    </div>
+
+    <form class="modal__form" data-modal-form action="{{booking.action}}" method="post" novalidate>
+      <label class="dart-field modal__field">
+        <span class="dart-field__label">Ваше имя <span>*</span></span>
+        <input type="text" name="name" placeholder="Имя" autocomplete="name" required data-validate="name">
+        <span class="dart-field__error">Как к вам обращаться?</span>
+      </label>
+
+      <label class="dart-field modal__field">
+        <span class="dart-field__label">Телефон <span>*</span></span>
+        <input type="tel" name="phone" placeholder="+7 (___) ___-__-__" autocomplete="tel" required data-validate="phone" inputmode="tel">
+        <span class="dart-field__error">Укажите телефон, по нему перезвоним</span>
+      </label>
+
+      <label class="dart-field modal__field">
+        <span class="dart-field__label">Сообщение <span>(необязательно)</span></span>
+        <textarea name="message" rows="3" placeholder="Укажите услугу, врача или удобное время"></textarea>
+      </label>
+
+      <label class="dart-consent modal__consent">
+        <input type="checkbox" name="consent" required data-validate="consent">
+        <span>Я согласен на обработку персональных данных</span>
+      </label>
+
+      <button type="submit" class="dart-btn dart-btn-primary dart-btn-block modal__submit">
+        Отправить заявку
+        <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+      </button>
+
+      <p class="modal__note">
+        <i class="fa-solid fa-lock" aria-hidden="true"></i>
+        Данные защищены и не передаются третьим лицам
+      </p>
+    </form>
+
+    <div class="modal__contacts">
+      {{#each site.phones}}
+      <a href="tel:{{this.href}}" class="modal__contact">
+        <span class="modal__contact-label">{{this.label}}</span>
+        <span class="modal__contact-value">{{this.value}}</span>
+      </a>
+      {{/each}}
+
+      <span class="modal__contact modal__contact--hours">
+        <span class="modal__contact-label">Часы работы</span>
+        <span class="modal__contact-value">с 9:00 до 20:00</span>
+      </span>
+    </div>
+
+    <div class="modal__success" data-form-success hidden>
+      <span class="modal__success-icon">
+        <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+      </span>
+      <h3 class="modal__success-title">{{booking.success.title}}</h3>
+      <p class="modal__success-text">{{booking.success.text}}</p>
+      <div class="modal__success-actions">
+        <a href="tel:{{site.phoneHref}}" class="dart-btn dart-btn-primary">Позвонить сейчас</a>
+        <button type="button" class="dart-btn dart-btn-outline" data-modal-close>Закрыть</button>
+      </div>
+    </div>
+
+  </div>
+</dialog>

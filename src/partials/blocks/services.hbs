@@ -1,0 +1,85 @@
+<section class="section services" id="services">
+  <div class="dart-container">
+
+    <div class="section__header services__header">
+      <div class="services__header-text">
+        <span class="section__eyebrow">Услуги и цены</span>
+        <h2>Выберите подходящий формат работы</h2>
+        <p class="section__desc">
+          Ниже — пример структуры услуг и стоимости. Замените названия, описания
+          и цены на свои. Оставить заявку можно <a href="#booking">через форму</a>.
+        </p>
+      </div>
+      <a href="#booking" class="dart-btn dart-btn-primary services__header-cta">
+        Оставить заявку
+        <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+      </a>
+    </div>
+
+    <ul class="services__grid">
+      {{#each services}}
+      <li class="service-card{{#if this.popular}} service-card--popular{{/if}} reveal">
+        {{#if this.popular}}
+        <span class="service-card__badge">
+          <i class="fa-solid fa-fire" aria-hidden="true"></i> Чаще всего выбирают
+        </span>
+        {{/if}}
+
+        <div class="service-card__top">
+          <span class="service-card__icon"><i class="{{this.icon}}" aria-hidden="true"></i></span>
+          <div class="service-card__head">
+            <h3 class="service-card__title">{{this.title}}</h3>
+            <span class="service-card__duration">
+              <i class="fa-regular fa-clock" aria-hidden="true"></i>
+              {{this.duration}}
+            </span>
+          </div>
+        </div>
+
+        <p class="service-card__text">{{this.text}}</p>
+
+        <div class="service-card__price">
+          <span class="service-card__price-label">от</span>
+          <span class="service-card__price-value">{{money this.price}}</span>
+        </div>
+
+        <ul class="service-card__prices">
+          {{#each this.prices}}
+          <li>
+            <span class="service-card__size">{{tierAt @index}}</span>
+            <span class="service-card__sum">{{money this}}</span>
+          </li>
+          {{/each}}
+        </ul>
+
+        <a href="#booking" class="dart-btn dart-btn-secondary service-card__cta"
+           data-booking-service="{{this.title}}">
+          Оставить заявку
+        </a>
+      </li>
+      {{/each}}
+    </ul>
+
+    <p class="services__note">
+      <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+      {{serviceNote}}
+    </p>
+
+    <div class="services__bottom">
+      <div class="services__bottom-text">
+        <i class="fa-solid fa-circle-question" aria-hidden="true"></i>
+        <p>
+          Не знаете, какой формат подойдёт? Опишите задачу — специалист подскажет
+          на консультации <strong>бесплатно</strong>.
+        </p>
+      </div>
+      <div class="services__bottom-actions">
+        <a href="{{site.whatsapp}}" class="dart-btn dart-btn-whatsapp" target="_blank" rel="noopener">
+          <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Спросить в WhatsApp
+        </a>
+        <a href="#booking" class="dart-btn dart-btn-outline">Оставить заявку</a>
+      </div>
+    </div>
+
+  </div>
+</section>

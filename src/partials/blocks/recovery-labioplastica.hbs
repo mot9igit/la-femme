@@ -1,0 +1,42 @@
+<section class="section section--tinted section--center recovery" id="recovery" aria-labelledby="recovery-title">
+  <div class="dart-container">
+
+    <div class="section__header recovery__header reveal">
+      <span class="section__eyebrow">{{recovery.eyebrow}}</span>
+      <h2 id="recovery-title">{{recovery.title}}</h2>
+    </div>
+
+    <ul class="recovery__grid">
+      {{#each recovery.cards}}
+      <li class="recovery__card reveal">
+        <span class="recovery__icon">
+          <i class="{{this.icon}}" aria-hidden="true"></i>
+        </span>
+        <h3 class="recovery__time">{{this.time}}</h3>
+        <p class="recovery__text">{{this.text}}</p>
+      </li>
+      {{/each}}
+    </ul>
+
+    <div class="recovery__cta reveal">
+      <div class="recovery__cta-main">
+        <span class="recovery__cta-icon">
+          <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+        </span>
+        <p class="recovery__cta-text">{{recovery.note}}</p>
+      </div>
+      <button
+        type="button"
+        class="dart-btn dart-btn-primary"
+        data-modal-open
+        data-modal-message="{{recovery.cta.message}}"
+        aria-haspopup="dialog"
+        aria-controls="booking-modal"
+      >
+        {{recovery.cta.label}}
+        <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+      </button>
+    </div>
+
+  </div>
+</section>

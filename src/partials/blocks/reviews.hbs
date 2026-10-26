@@ -1,0 +1,61 @@
+<section class="section section--tinted reviews" id="reviews">
+  <div class="dart-container">
+
+    <div class="section__header reviews__header">
+      <div>
+        <span class="section__eyebrow">Отзывы</span>
+        <h2>{{site.rating}} из 5 — {{site.reviewsCount}} отзывов</h2>
+      </div>
+    </div>
+
+    <ul class="reviews__grid">
+      {{#each reviews}}
+      <li class="review reveal">
+        <div class="review__top">
+          <span class="rating-stars" aria-label="Оценка {{this.rating}} из 5">
+            {{#each (stars this.rating)}}
+              {{#if this}}
+              <i class="fa-solid fa-star" aria-hidden="true"></i>
+              {{else}}
+              <i class="fa-regular fa-star" aria-hidden="true"></i>
+              {{/if}}
+            {{/each}}
+          </span>
+          <span class="review__source review__source--{{this.source}}">{{this.sourceLabel}}</span>
+        </div>
+
+        <p class="review__text">{{this.text}}</p>
+
+        <div class="review__author">
+          <span class="review__client">
+            <img src="{{this.clientPhoto}}" alt="Клиент: {{this.client}}" width="240" height="240" loading="lazy">
+          </span>
+          <span class="review__owner">
+            <img src="{{this.ownerPhoto}}" alt="" width="240" height="240" loading="lazy">
+          </span>
+          <span class="review__who">
+            <span class="review__name">{{this.owner}}</span>
+            <span class="review__client-name">{{this.client}}</span>
+          </span>
+          <time class="review__date" datetime="{{this.dateISO}}">{{this.date}}</time>
+        </div>
+      </li>
+      {{/each}}
+    </ul>
+
+    <div class="reviews__cta">
+      <p class="reviews__cta-text">
+        <i class="fa-solid fa-comment-dots" aria-hidden="true"></i>
+        Прочитали отзывы и хотите обсудить задачу? Оставьте заявку — специалист
+        свяжется и предложит следующий шаг.
+      </p>
+      <div class="reviews__cta-actions">
+        <a href="#booking" class="dart-btn dart-btn-primary">Оставить заявку</a>
+        <a href="tel:{{site.phoneHref}}" class="dart-btn dart-btn-outline">
+          <i class="fa-solid fa-phone" aria-hidden="true"></i> Позвонить
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>

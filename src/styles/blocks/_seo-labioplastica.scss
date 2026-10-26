@@ -1,0 +1,51 @@
+@use '../vars' as *;
+
+// ============================================================
+//  SEO-текст — страница лабиопластики
+// ============================================================
+
+.seo-labi {
+  border-top: 1px solid var(--border);
+  background: var(--white);
+}
+
+.seo-labi__content {
+  max-width: 900px;
+
+  h2 {
+    max-width: 820px;
+    font-size: clamp(30px, 3vw, 42px);
+    line-height: 1.18;
+  }
+
+  p {
+    margin-top: 18px;
+    color: var(--text-soft);
+    font-size: 17px;
+    line-height: 1.75;
+  }
+
+  .seo-labi__note {
+    margin-top: 24px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    color: var(--text-muted);
+    font-size: 14px;
+    line-height: 1.55;
+  }
+
+  @media (max-width: $tablets) {
+    h2 { font-size: 28px; }
+
+    p {
+      margin-top: 14px;
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    .seo-labi__note {
+      margin-top: 20px;
+      font-size: 13px;
+    }
+  }
+}

@@ -1,0 +1,18 @@
+<div class="sticky-cta" data-sticky-cta>
+  <a href="tel:{{site.phoneHref}}" class="sticky-cta__icon" aria-label="Позвонить {{site.phone}}">
+    <i class="fa-solid fa-phone" aria-hidden="true"></i>
+  </a>
+  <button
+    type="button"
+    class="sticky-cta__main"
+    data-modal-open
+    aria-haspopup="dialog"
+    aria-controls="booking-modal"
+  >
+    <span class="sticky-cta__title">Оставить заявку</span>
+    <span class="sticky-cta__note">{{site.hoursShort}} · {{#if priceIncludes}}{{money priceIncludes.price}}{{else}}{{site.priceRange}}{{/if}}</span>
+  </button>
+  <a href="{{site.whatsapp}}" class="sticky-cta__icon sticky-cta__icon--wa" target="_blank" rel="noopener" aria-label="Написать в WhatsApp">
+    <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+  </a>
+</div>

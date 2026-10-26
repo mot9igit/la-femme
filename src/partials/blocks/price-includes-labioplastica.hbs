@@ -1,0 +1,52 @@
+<section class="section section--tinted section--center price-includes" id="price-includes" aria-labelledby="price-includes-title">
+  <div class="dart-container">
+
+    <div class="section__header price-includes__header reveal">
+      <span class="section__eyebrow">{{priceIncludes.eyebrow}}</span>
+      <h2 id="price-includes-title">{{priceIncludes.title}}</h2>
+      <p class="section__desc">{{priceIncludes.text}}</p>
+    </div>
+
+    <div class="price-includes__receipt reveal">
+      <div class="price-includes__receipt-head">
+        <div class="price-includes__price-block">
+          <span class="price-includes__price-label">{{priceIncludes.priceLabel}}</span>
+          <strong class="price-includes__price">{{money priceIncludes.price}}</strong>
+        </div>
+        <span class="price-includes__badge">
+          <i class="fa-solid fa-check" aria-hidden="true"></i>
+          {{priceIncludes.badge}}
+        </span>
+      </div>
+
+      <div class="price-includes__divider" aria-hidden="true"></div>
+
+      <ul class="price-includes__grid">
+        {{#each priceIncludes.items}}
+        <li class="price-includes__card">
+          <div class="price-includes__card-head">
+            <span class="price-includes__check">
+              <i class="fa-solid fa-check" aria-hidden="true"></i>
+            </span>
+            <h3 class="price-includes__card-title">{{this.title}}</h3>
+          </div>
+          <p class="price-includes__card-text">{{this.text}}</p>
+        </li>
+        {{/each}}
+      </ul>
+
+      <div class="price-includes__divider" aria-hidden="true"></div>
+
+      <aside class="price-includes__note" aria-labelledby="price-includes-note-title">
+        <span class="price-includes__note-icon">
+          <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+        </span>
+        <div class="price-includes__note-body">
+          <h3 class="price-includes__note-title" id="price-includes-note-title">{{priceIncludes.note.title}}</h3>
+          <p class="price-includes__note-text">{{priceIncludes.note.text}}</p>
+        </div>
+      </aside>
+    </div>
+
+  </div>
+</section>

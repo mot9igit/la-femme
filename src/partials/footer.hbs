@@ -1,0 +1,93 @@
+<footer class="dart_footer footer">
+  <div class="dart-container">
+
+    <div class="footer__top">
+      <div class="footer__brand">
+        <a href="{{rootHref "#top"}}" class="footer__logo" aria-label="Ля Фамм — на главную">
+          <img src="/assets/img/logo_pink.png" alt="Ля Фамм" width="200" height="91" loading="lazy">
+        </a>
+
+        <p class="footer__tagline">
+          Женская консультация и гинекологическая клиника в Москве
+        </p>
+
+        <a href="{{footer.licenseUrl}}" class="footer__license" target="_blank" rel="noopener">
+          <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
+          {{footer.license}}
+        </a>
+
+        <div class="footer__socials">
+          {{#each footer.socials}}
+          <a href="{{rootHref this.href}}" target="_blank" rel="noopener" aria-label="{{this.label}}">
+            <i class="{{this.icon}}" aria-hidden="true"></i>
+          </a>
+          {{/each}}
+        </div>
+      </div>
+
+      {{#each footer.columns}}
+      <nav class="footer__col" aria-label="{{this.title}}">
+        <h3 class="footer__col-title">{{this.title}}</h3>
+        <ul class="footer__list">
+          {{#each this.links}}
+          <li>
+            <a href="{{rootHref this.href}}"{{#if this.external}} target="_blank" rel="noopener"{{/if}}>{{this.label}}</a>
+          </li>
+          {{/each}}
+        </ul>
+      </nav>
+      {{/each}}
+
+      <div class="footer__col footer__col--contacts">
+        <h3 class="footer__col-title">Контакты</h3>
+
+        <button type="button" class="dart-btn dart-btn-primary dart-btn-block footer__cta" data-modal-open aria-haspopup="dialog" aria-controls="booking-modal">
+          <i class="fa-regular fa-calendar-check" aria-hidden="true"></i>
+          Запись на прием
+        </button>
+
+        <p class="footer__hours">
+          <i class="fa-regular fa-clock" aria-hidden="true"></i>
+          <span>Ежедневно с 9:00 до 20:00</span>
+        </p>
+
+        <div class="footer__clinics">
+          {{#each footer.clinics}}
+          <div class="footer__clinic">
+            <span class="footer__clinic-name">{{this.name}} · {{this.metro}}</span>
+            <a href="tel:{{this.phoneHref}}" class="footer__clinic-phone">{{this.phone}}</a>
+            <span class="footer__clinic-address">
+              <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+              {{this.address}}
+            </span>
+          </div>
+          {{/each}}
+        </div>
+
+        <a href="mailto:{{site.email}}" class="footer__email">
+          <i class="fa-regular fa-envelope" aria-hidden="true"></i>
+          {{site.email}}
+        </a>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <div class="footer__requisites">
+        <h3 class="footer__bottom-title">Реквизиты</h3>
+        <div class="footer__entities">
+          {{#each footer.legalEntities}}
+          <p class="footer__entity">
+            <strong>{{this.name}}</strong>
+            <span>ИНН {{this.inn}} · ОГРН {{this.ogrn}}</span>
+          </p>
+          {{/each}}
+        </div>
+      </div>
+
+      <div class="footer__meta">
+        <p class="footer__note">{{footer.copyright}} · {{footer.disclaimer}}</p>
+      </div>
+    </div>
+
+  </div>
+</footer>

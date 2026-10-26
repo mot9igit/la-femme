@@ -1,0 +1,23 @@
+<section class="section section--tinted section--center why-us" id="why-us" aria-labelledby="why-us-title">
+  <div class="dart-container">
+
+    <div class="section__header why-us__header reveal">
+      <span class="section__eyebrow">{{whyUs.eyebrow}}</span>
+      <h2 id="why-us-title">{{whyUs.title}}</h2>
+      <p class="section__desc">{{whyUs.text}}</p>
+    </div>
+
+    <ul class="why-us__grid">
+      {{#each whyUs.items}}
+      <li class="why-us__card reveal">
+        <span class="why-us__icon">
+          <i class="{{this.icon}}" aria-hidden="true"></i>
+        </span>
+        <h3 class="why-us__card-title">{{this.title}}</h3>
+        <p class="why-us__card-text">{{this.text}}</p>
+      </li>
+      {{/each}}
+    </ul>
+
+  </div>
+</section>

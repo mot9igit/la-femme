@@ -1,0 +1,242 @@
+@use '../vars' as *;
+
+// ============================================================
+//  3. УСЛУГИ И ЦЕНЫ
+// ============================================================
+
+.services__header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+.services__header-text { max-width: 760px; }
+
+.services__header-cta {
+  flex: 0 0 auto;
+  margin-bottom: 6px;
+
+  @media (max-width: $tablets) { display: none; }
+}
+
+.services__grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+
+  @media (max-width: 1400px) { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  @media (max-width: 1024px) { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  @media (max-width: 611px) { grid-template-columns: minmax(0, 1fr); }
+}
+
+.service-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 26px 24px 24px;
+  border: 1.5px solid var(--border);
+  border-radius: $radius;
+  background: var(--white);
+  box-shadow: var(--shadow-sm);
+  transition: border-color .25s ease, box-shadow .25s ease, transform .25s ease;
+
+  &:hover {
+    border-color: var(--brand-lilac);
+    box-shadow: var(--shadow);
+    transform: translateY($hover-lift);
+  }
+
+  &--popular {
+    border-color: var(--brand-lilac);
+    background: linear-gradient(180deg, #FBF7FF 0%, #fff 60%);
+  }
+}
+
+.service-card__badge {
+  position: absolute;
+  top: -12px;
+  left: 22px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: $radius-pill;
+  background: var(--cta-gradient);
+  color: var(--white);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .01em;
+  box-shadow: 0 6px 16px rgba(198, 54, 120, .25);
+
+  i { font-size: 11px; }
+}
+
+.service-card__top {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.service-card__icon {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border-radius: $radius-sm;
+  background: var(--primary-soft);
+  color: var(--primary-color);
+  font-size: 19px;
+}
+
+.service-card__head { min-width: 0; }
+
+.service-card__title {
+  font-size: 20px;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.service-card__duration {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 6px;
+  font-size: 13px;
+  color: var(--text-muted);
+
+  i { font-size: 12px; }
+}
+
+.service-card__text {
+  margin-top: 14px;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--text-soft);
+}
+
+.service-card__price {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px dashed var(--border-2);
+}
+
+.service-card__price-label {
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.service-card__price-value {
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--primary-color);
+}
+
+.service-card__prices {
+  margin-top: 14px;
+  margin-bottom: 20px;
+
+  li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 7px 0;
+    font-size: 14px;
+
+    & + li { border-top: 1px solid var(--border); }
+  }
+}
+
+.service-card__size { color: var(--text-muted); }
+
+.service-card__sum {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.service-card__cta {
+  width: 100%;
+  margin-top: auto;
+  padding: 14px 20px;
+  font-size: 15px;
+}
+
+/* ---------- примечание под прайсом ---------- */
+.services__note {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-top: 24px;
+  padding: 18px 22px;
+  border-radius: $radius-sm;
+  background: var(--surface);
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--text-soft);
+
+  i {
+    flex: 0 0 auto;
+    margin-top: 2px;
+    color: var(--secondary-color);
+    font-size: 16px;
+  }
+}
+
+.services__bottom {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-top: 32px;
+  padding: 28px 32px;
+  border-radius: $radius;
+  background: var(--cta-gradient);
+  color: var(--white);
+
+  @media (max-width: $tablets) { padding: 24px 20px; }
+}
+
+.services__bottom-text {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  max-width: 560px;
+
+  i {
+    flex: 0 0 auto;
+    margin-top: 3px;
+    font-size: 24px;
+    opacity: .9;
+  }
+
+  p {
+    font-size: 17px;
+    line-height: 1.45;
+    color: var(--white);
+  }
+
+  strong { font-weight: 700; }
+}
+
+.services__bottom-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+
+  .dart-btn-outline {
+    color: var(--white);
+    background: rgba(255, 255, 255, .12);
+    border-color: rgba(255, 255, 255, .4);
+
+    &:hover { background: var(--white); color: var(--primary-color); }
+  }
+}

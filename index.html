@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    {{> meta }}
+  </head>
+  <body>
+    {{> schema }}
+
+    <a href="#booking" class="skip-link">Перейти к форме заявки</a>
+
+    <div class="dart_wrapper">
+      {{> header}}
+
+      <main class="dart_main">
+        {{> blocks/hero}}
+        {{> blocks/trust}}
+        {{> blocks/services}}
+        {{> blocks/benefits}}
+        {{> blocks/process}}
+        {{> blocks/team}}
+        {{> blocks/portfolio}}
+        {{> blocks/reviews}}
+        {{> blocks/special}}
+        {{> blocks/contacts}}
+        {{> blocks/faq}}
+        {{> blocks/booking}}
+      </main>
+
+      {{> footer}}
+    </div>
+
+    {{> sticky-cta}}
+    {{> modal}}
+    {{> cookie-consent}}
+
+    {{> scripts}}
+  </body>
+</html>

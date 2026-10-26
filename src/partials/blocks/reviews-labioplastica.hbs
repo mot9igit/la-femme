@@ -1,0 +1,73 @@
+<section class="section section--tinted reviews-labi" id="reviews" aria-labelledby="reviews-title" data-reviews-root>
+  <div class="dart-container">
+
+    <div class="section__header reviews-labi__header reveal">
+      <div class="reviews-labi__heading">
+        <span class="section__eyebrow">{{reviews.eyebrow}}</span>
+        <h2 id="reviews-title">{{reviews.title}}</h2>
+        <p class="section__desc">{{reviews.text}}</p>
+      </div>
+
+      <div class="reviews-labi__controls">
+        <span class="reviews-labi__count">{{reviews.countLabel}}</span>
+        <div class="reviews-labi__nav">
+          <button type="button" class="reviews-labi__nav-btn" data-reviews-prev aria-label="Предыдущий отзыв">
+            <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+          </button>
+          <button type="button" class="reviews-labi__nav-btn" data-reviews-next aria-label="Следующий отзыв">
+            <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="swiper reviews-labi__slider" data-reviews-slider aria-label="Отзывы пациенток о лабиопластике">
+      <div class="swiper-wrapper">
+        {{#each reviews.items}}
+        <article class="swiper-slide reviews-labi__slide">
+          <div class="reviews-labi__card">
+            <div class="reviews-labi__top">
+              <span class="rating-stars reviews-labi__stars" aria-label="Оценка {{this.rating}} из 5">
+                {{#each (stars this.rating)}}
+                  {{#if this}}
+                  <i class="fa-solid fa-star" aria-hidden="true"></i>
+                  {{else}}
+                  <i class="fa-regular fa-star" aria-hidden="true"></i>
+                  {{/if}}
+                {{/each}}
+              </span>
+              <span class="reviews-labi__mark" aria-hidden="true">
+                <i class="fa-solid fa-quote-right"></i>
+              </span>
+            </div>
+
+            <p class="reviews-labi__text">{{this.text}}</p>
+
+            <div class="reviews-labi__author">
+              <span class="reviews-labi__avatar" aria-hidden="true">{{this.initial}}</span>
+              <span class="reviews-labi__who">
+                <span class="reviews-labi__name">{{this.author}}</span>
+                <span class="reviews-labi__meta">{{@root.reviews.meta}}</span>
+              </span>
+            </div>
+
+            <a
+              class="reviews-labi__source"
+              href="{{this.sourceUrl}}"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Открыть отзыв на сайте: {{this.author}}"
+            >
+              {{@root.reviews.sourceLabel}}
+              <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+            </a>
+          </div>
+        </article>
+        {{/each}}
+      </div>
+
+      <div class="swiper-pagination reviews-labi__pagination" data-reviews-pagination></div>
+    </div>
+
+  </div>
+</section>

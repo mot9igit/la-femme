@@ -1,0 +1,79 @@
+@use 'vars' as *;
+
+// ============================================================
+//  МОБИЛЬНАЯ ЛИПКАЯ ПАНЕЛЬ — «Записаться» + звонок + мессенджер
+//  Показывается только на мобильных, прячется, когда форма на экране.
+// ============================================================
+
+.sticky-cta {
+  position: fixed;
+  left: 12px;
+  right: 12px;
+  bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+  z-index: 95;
+  display: none;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+      border-radius: $radius;
+  background: rgba(255, 255, 255, .94);
+  border: 1px solid var(--border);
+  box-shadow: 0 12px 34px rgba(23, 20, 31, .18);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  transform: translateY(140%);
+  transition: transform .3s ease, opacity .3s ease;
+  opacity: 0;
+
+  &.is-visible {
+    transform: none;
+    opacity: 1;
+  }
+
+  @media (max-width: 991px) { display: flex; }
+}
+
+.sticky-cta__icon {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border-radius: $radius-sm;
+  background: var(--cta-gradient);
+  color: var(--white);
+  font-size: 18px;
+  transition: transform .2s ease;
+
+  &--wa { background: #25D366; }
+
+  &:active { transform: scale(.94); }
+}
+
+.sticky-cta__main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  line-height: 1.25;
+  cursor: pointer;
+}
+
+.sticky-cta__title {
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--text);
+}
+
+.sticky-cta__note {
+  font-size: 12px;
+  color: var(--text-muted);
+}

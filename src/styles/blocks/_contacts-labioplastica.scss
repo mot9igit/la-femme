@@ -1,0 +1,449 @@
+@use '../vars' as *;
+
+// ============================================================
+//  Контакты — страница лабиопластики
+// ============================================================
+
+.contacts-labi__header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 32px;
+
+  > .section__desc { max-width: 520px; }
+
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+
+    > .section__desc { margin-top: 14px; }
+  }
+}
+
+.contacts-labi__layout {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  align-items: stretch;
+
+  @media (max-width: 1024px) { grid-template-columns: minmax(0, 1fr); }
+}
+
+.contacts-labi__clinics {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-content: start;
+  gap: 20px;
+}
+
+.contacts-labi__clinic {
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr);
+  grid-template-areas:
+    "number top"
+    "address address"
+    "actions actions";
+  align-content: start;
+  min-width: 0;
+  padding: 26px 28px;
+  border: 1.5px solid var(--border);
+  border-radius: $radius;
+  background: var(--white);
+  box-shadow: $shadow-sm;
+  transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+
+  &:hover {
+    transform: translateY($hover-lift);
+    border-color: var(--brand-lilac);
+    box-shadow: $shadow;
+  }
+
+  @media (min-width: $small-tablets) {
+    grid-template-columns: 44px minmax(0, 1fr) auto;
+    grid-template-areas:
+      "number top actions"
+      "number address actions";
+    align-items: center;
+    column-gap: 16px;
+  }
+
+  @media (max-width: $big-phones) { padding: 22px; }
+}
+
+.contacts-labi__clinic-number {
+  grid-area: number;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  align-self: start;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--primary-soft);
+  color: var(--primary-color);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: .04em;
+}
+
+.contacts-labi__clinic-top {
+  grid-area: top;
+  min-width: 0;
+}
+
+.contacts-labi__clinic h3 {
+  font-size: 24px;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.contacts-labi__metro {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 6px;
+  color: var(--text-muted);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.4;
+
+  i {
+    color: var(--secondary-color);
+    font-size: 13px;
+  }
+}
+
+.contacts-labi__address {
+  grid-area: address;
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+  font-style: normal;
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.5;
+
+  a {
+    color: var(--text);
+    transition: color .2s ease;
+
+    &:hover { color: var(--primary-color); }
+  }
+
+  @media (min-width: $small-tablets) {
+    margin-top: 8px;
+    padding-top: 0;
+    border-top: 0;
+  }
+}
+
+.contacts-labi__clinic-actions {
+  grid-area: actions;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-top: 18px;
+  padding-top: 0;
+
+  @media (min-width: $small-tablets) {
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 0;
+  }
+}
+
+.contacts-labi__phone {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--text);
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  transition: color .2s ease;
+
+  i {
+    color: var(--primary-color);
+    font-size: 14px;
+  }
+
+  &:hover { color: var(--primary-color); }
+}
+
+.contacts-labi__route {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--primary-color);
+  font-size: 14px;
+  font-weight: 600;
+
+  i {
+    font-size: 11px;
+    transition: transform .2s ease;
+  }
+
+  &:hover i { transform: translateX(3px); }
+}
+
+.contacts-labi__note {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 14px 18px;
+  border: 1px solid var(--border);
+  border-radius: $radius-sm;
+  background: var(--surface);
+  color: var(--text-soft);
+  font-size: 14px;
+  line-height: 1.5;
+
+  i {
+    flex: 0 0 auto;
+    margin-top: 3px;
+    color: var(--primary-color);
+  }
+}
+
+.contacts-labi__aside {
+  display: flex;
+  flex-direction: column;
+  padding: 30px 28px;
+  border: 1.5px solid var(--border);
+  border-radius: $radius;
+  background: var(--surface);
+
+  @media (max-width: $big-phones) { padding: 24px 22px; }
+}
+
+.contacts-labi__info-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--border);
+
+  &:first-child { padding-top: 0; }
+  &:last-of-type { border-bottom: 0; }
+}
+
+.contacts-labi__info-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--white);
+  color: var(--primary-color);
+  font-size: 16px;
+  box-shadow: $shadow-sm;
+}
+
+.contacts-labi__info-label {
+  display: block;
+  color: var(--text-muted);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .04em;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+.contacts-labi__info-row p,
+.contacts-labi__info-row a {
+  display: block;
+  margin-top: 5px;
+  color: var(--text);
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.35;
+  transition: color .2s ease;
+}
+
+.contacts-labi__info-row a:hover { color: var(--primary-color); }
+
+.contacts-labi__info-row small {
+  display: block;
+  margin-top: 3px;
+  color: var(--text-muted);
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.contacts-labi__aside-actions {
+  display: grid;
+  gap: 10px;
+  margin-top: auto;
+  padding-top: 22px;
+
+  @media (min-width: $small-tablets) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.contacts-labi__map {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(320px, .65fr);
+  min-height: 360px;
+  margin-top: 20px;
+  overflow: hidden;
+  border: 1.5px solid var(--border);
+  border-radius: $radius;
+  background: var(--surface);
+
+  @media (max-width: 1024px) { grid-template-columns: minmax(0, 1fr); }
+}
+
+.contacts-labi__map-canvas {
+  position: relative;
+  min-height: 360px;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 18% 22%, rgba(135, 231, 234, .45), transparent 34%),
+    radial-gradient(circle at 82% 75%, rgba(233, 167, 196, .35), transparent 40%),
+    #F1EFF9;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(23, 20, 31, .05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(23, 20, 31, .05) 1px, transparent 1px);
+    background-size: 56px 56px;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 55%, rgba(23, 20, 31, .05));
+    pointer-events: none;
+  }
+
+  @media (max-width: $tablets) { min-height: 300px; }
+  @media (max-width: $big-phones) { min-height: 240px; }
+}
+
+.contacts-labi__map-road {
+  position: absolute;
+  z-index: 1;
+  width: 90%;
+  height: 14px;
+  border-radius: $radius-pill;
+  background: var(--white);
+  box-shadow: 0 0 0 1px rgba(23, 20, 31, .06);
+}
+
+.contacts-labi__map-road--one {
+  top: 28%;
+  left: -8%;
+  transform: rotate(-10deg);
+}
+
+.contacts-labi__map-road--two {
+  top: 64%;
+  left: 8%;
+  transform: rotate(12deg);
+}
+
+.contacts-labi__map-road--three {
+  top: -12%;
+  left: 58%;
+  width: 14px;
+  height: 125%;
+  transform: rotate(14deg);
+}
+
+.contacts-labi__map-pin {
+  position: absolute;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 12px 8px 10px;
+  border-radius: $radius-pill;
+  background: var(--white);
+  box-shadow: $shadow;
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.2;
+
+  i {
+    color: var(--primary-color);
+    font-size: 18px;
+  }
+}
+
+.contacts-labi__map-pin--one {
+  top: 27%;
+  left: 16%;
+}
+
+.contacts-labi__map-pin--two {
+  top: 57%;
+  left: 55%;
+}
+
+.contacts-labi__map-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 32px;
+  border-left: 1.5px solid var(--border);
+  background: var(--white);
+
+  h3 {
+    font-size: 28px;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+
+  p {
+    margin-top: 10px;
+    color: var(--text-soft);
+    font-size: 16px;
+    line-height: 1.55;
+  }
+
+  small {
+    margin-top: 18px;
+    color: var(--text-muted);
+    font-size: 13px;
+    line-height: 1.45;
+  }
+
+  @media (max-width: 1024px) {
+    border-top: 1.5px solid var(--border);
+    border-left: 0;
+  }
+
+  @media (max-width: $big-phones) { padding: 24px 22px; }
+}
+
+.contacts-labi__map-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+@media (max-width: $big-phones) {
+  .contacts-labi__map-pin {
+    padding: 6px 10px;
+    font-size: 12px;
+
+    i { font-size: 16px; }
+  }
+
+  .contacts-labi__map-pin--one { left: 10%; }
+  .contacts-labi__map-pin--two { left: 48%; }
+}

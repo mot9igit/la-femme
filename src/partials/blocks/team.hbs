@@ -1,0 +1,53 @@
+<section class="section section--tinted team" id="team">
+  <div class="dart-container">
+
+    <div class="section__header team__header">
+      <div>
+        <span class="section__eyebrow">Команда</span>
+        <h2>Специалисты, которые будут работать над задачей</h2>
+      </div>
+      <p class="section__desc">
+        Замените имена, роли и описания на реальные данные. При записи можно
+        выбрать конкретного специалиста.
+      </p>
+    </div>
+
+    <ul class="team__grid">
+      {{#each team}}
+      <li class="team-card reveal">
+        <div class="team-card__photo">
+          <img src="{{this.photo}}" alt="{{this.alt}}" width="600" height="600" loading="lazy">
+          <span class="team-card__exp">{{this.experience}}</span>
+        </div>
+        <div class="team-card__body">
+          <h3 class="team-card__name">{{this.name}}</h3>
+          <p class="team-card__role">{{this.role}}</p>
+          <p class="team-card__method">
+            <i class="fa-solid fa-briefcase" aria-hidden="true"></i>
+            {{this.method}}
+          </p>
+          <ul class="team-card__spec">
+            {{#each this.spec}}
+            <li>{{this}}</li>
+            {{/each}}
+          </ul>
+          <p class="team-card__cert">
+            <i class="fa-solid fa-certificate" aria-hidden="true"></i>
+            {{this.cert}}
+          </p>
+          <a href="#booking" class="dart-btn dart-btn-outline dart-btn-small team-card__cta"
+             data-booking-specialist="{{this.name}}">
+            Выбрать специалиста
+          </a>
+        </div>
+      </li>
+      {{/each}}
+    </ul>
+
+    <p class="team__note">
+      <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+      {{teamNote}}
+    </p>
+
+  </div>
+</section>

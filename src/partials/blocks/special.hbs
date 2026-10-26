@@ -1,0 +1,47 @@
+<section class="section section--accent special" id="special">
+  <div class="dart-container">
+
+    <div class="section__header section--center special__header">
+      <span class="section__eyebrow">Специальные предложения</span>
+      <h2>Условия, которые делают старт проще</h2>
+      <p class="section__desc">
+        Используйте этот блок для акций, пакетов или особых условий.
+        Замените карточки и изображения на свои.
+      </p>
+    </div>
+
+    <ul class="special__grid">
+      {{#each special}}
+      <li class="special-card reveal">
+        <div class="special-card__media">
+          <img src="{{this.img}}" alt="{{this.title}}" width="640" height="440" loading="lazy">
+          <span class="special-card__icon"><i class="{{this.icon}}" aria-hidden="true"></i></span>
+        </div>
+        <div class="special-card__body">
+          <h3 class="special-card__title">{{this.title}}</h3>
+          <p class="special-card__text">{{this.text}}</p>
+          <ul class="special-card__chips">
+            {{#each this.chips}}
+            <li>{{this}}</li>
+            {{/each}}
+          </ul>
+        </div>
+      </li>
+      {{/each}}
+    </ul>
+
+    <div class="special__note">
+      <p>
+        <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+        {{specialNote}}
+      </p>
+      <div class="special__note-actions">
+        <a href="tel:{{site.phoneHref}}" class="dart-btn dart-btn-primary">
+          <i class="fa-solid fa-phone" aria-hidden="true"></i> Позвонить
+        </a>
+        <a href="#booking" class="dart-btn dart-btn-outline">Оставить заявку</a>
+      </div>
+    </div>
+
+  </div>
+</section>

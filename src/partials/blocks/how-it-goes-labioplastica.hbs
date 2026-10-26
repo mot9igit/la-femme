@@ -1,0 +1,36 @@
+<section class="section section--center how-it-goes" id="how-it-goes" aria-labelledby="how-it-goes-title">
+  <div class="dart-container">
+
+    <div class="section__header how-it-goes__header reveal">
+      <span class="section__eyebrow">{{howItGoes.eyebrow}}</span>
+      <h2 id="how-it-goes-title">{{howItGoes.title}}</h2>
+      <p class="section__desc">{{howItGoes.text}}</p>
+    </div>
+
+    <ol class="how-it-goes__grid">
+      {{#each howItGoes.steps}}
+      <li class="how-it-goes__card reveal">
+        <div class="how-it-goes__top">
+          <span class="how-it-goes__step" aria-hidden="true">{{this.step}}</span>
+          <span class="how-it-goes__icon">
+            <i class="{{this.icon}}" aria-hidden="true"></i>
+          </span>
+        </div>
+        <h3 class="how-it-goes__card-title">{{this.title}}</h3>
+        <p class="how-it-goes__card-text">{{this.text}}</p>
+      </li>
+      {{/each}}
+    </ol>
+
+    <aside class="how-it-goes__note reveal" aria-labelledby="how-it-goes-note-title">
+      <span class="how-it-goes__note-icon">
+        <i class="fa-solid fa-file-medical" aria-hidden="true"></i>
+      </span>
+      <div class="how-it-goes__note-body">
+        <h3 class="how-it-goes__note-title" id="how-it-goes-note-title">{{howItGoes.note.title}}</h3>
+        <p class="how-it-goes__note-text">{{howItGoes.note.text}}</p>
+      </div>
+    </aside>
+
+  </div>
+</section>

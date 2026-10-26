@@ -1,0 +1,72 @@
+<section class="section licenses" id="licenses" aria-labelledby="licenses-title">
+  <div class="dart-container">
+    <div class="licenses__grid">
+
+      <div class="licenses__content reveal">
+        <span class="section__eyebrow">{{licenses.eyebrow}}</span>
+        <h2 id="licenses-title">{{licenses.title}}</h2>
+        <p class="licenses__lead">{{licenses.text}}</p>
+
+        <ul class="licenses__benefits">
+          {{#each licenses.benefits}}
+          <li class="licenses__benefit">
+            <span class="licenses__benefit-icon">
+              <i class="{{this.icon}}" aria-hidden="true"></i>
+            </span>
+            <span>{{this.text}}</span>
+          </li>
+          {{/each}}
+        </ul>
+
+        <figure class="licenses__clinic">
+          <img
+            src="{{licenses.clinic.photo}}"
+            alt="{{licenses.clinic.alt}}"
+            width="1920"
+            height="800"
+            loading="lazy"
+            decoding="async"
+          >
+          <figcaption>{{licenses.clinic.caption}}</figcaption>
+        </figure>
+      </div>
+
+      <div class="licenses__documents reveal">
+        <div class="licenses__docs">
+          {{#each licenses.documents}}
+          <figure class="licenses__doc">
+            <a
+              class="licenses__doc-link"
+              href="{{this.image}}"
+              data-fancybox="licenses"
+              data-caption="{{this.number}}. {{this.registration}}. {{this.date}}"
+              target="_blank"
+              rel="noopener"
+              aria-label="{{this.alt}} — открыть в полном размере"
+            >
+              <img
+                src="{{this.image}}"
+                alt="{{this.alt}}"
+                width="1357"
+                height="1920"
+                loading="lazy"
+                decoding="async"
+              >
+            </a>
+            <figcaption>
+              <strong>{{this.number}}</strong>
+              <span>{{this.registration}}</span>
+              <span>{{this.date}}</span>
+            </figcaption>
+          </figure>
+          {{/each}}
+        </div>
+        <p class="licenses__hint">
+          <i class="fa-solid fa-up-right-from-square" aria-hidden="true"></i>
+          Нажмите на документ, чтобы открыть его в полном размере.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>

@@ -1,0 +1,24 @@
+<section class="section section--tinted benefits" id="benefits">
+  <div class="dart-container">
+
+    <div class="section__header section--center benefits__header">
+      <span class="section__eyebrow">Почему выбирают нас</span>
+      <h2>Понятный процесс и предсказуемый результат</h2>
+      <p class="section__desc">
+        Соберите здесь главные причины, по которым клиенты возвращаются.
+        Замените тексты на свои — структура и адаптивность уже готовы.
+      </p>
+    </div>
+
+    <ul class="benefits__grid">
+      {{#each benefits}}
+      <li class="benefit reveal">
+        <span class="benefit__icon"><i class="{{this.icon}}" aria-hidden="true"></i></span>
+        <h3 class="benefit__title">{{this.title}}</h3>
+        <p class="benefit__text">{{this.text}}</p>
+      </li>
+      {{/each}}
+    </ul>
+
+  </div>
+</section>

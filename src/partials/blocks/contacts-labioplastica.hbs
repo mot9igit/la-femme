@@ -1,0 +1,130 @@
+<section class="section contacts-labi" id="contacts" aria-labelledby="contacts-labi-title">
+  <div class="dart-container">
+
+    <div class="section__header contacts-labi__header">
+      <div>
+        <span class="section__eyebrow">{{contactsLabioplastica.eyebrow}}</span>
+        <h2 id="contacts-labi-title">{{contactsLabioplastica.title}}</h2>
+      </div>
+      <p class="section__desc">{{contactsLabioplastica.text}}</p>
+    </div>
+
+    <div class="contacts-labi__layout">
+      <div class="contacts-labi__clinics">
+        {{#each contactsLabioplastica.clinics}}
+        <article class="contacts-labi__clinic reveal">
+          <span class="contacts-labi__clinic-number">{{#if @first}}01{{else}}02{{/if}}</span>
+
+          <div class="contacts-labi__clinic-top">
+            <h3>{{this.name}}</h3>
+            <p class="contacts-labi__metro">
+              <i class="fa-solid fa-train-subway" aria-hidden="true"></i>
+              {{this.metro}}
+            </p>
+          </div>
+
+          <address class="contacts-labi__address">
+            <a href="{{this.mapUrl}}" target="_blank" rel="noopener">{{this.address}}</a>
+          </address>
+
+          <div class="contacts-labi__clinic-actions">
+            <a href="tel:{{this.phoneHref}}" class="contacts-labi__phone">
+              <i class="fa-solid fa-phone" aria-hidden="true"></i>
+              {{this.phone}}
+            </a>
+            <a href="{{this.mapUrl}}" class="contacts-labi__route" target="_blank" rel="noopener">
+              Маршрут
+              <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+            </a>
+          </div>
+        </article>
+        {{/each}}
+
+        <p class="contacts-labi__note">
+          <i class="fa-regular fa-calendar-check" aria-hidden="true"></i>
+          <span>{{contactsLabioplastica.note}}</span>
+        </p>
+      </div>
+
+      <aside class="contacts-labi__aside reveal">
+        <div class="contacts-labi__info-row">
+          <span class="contacts-labi__info-icon">
+            <i class="fa-solid fa-clock" aria-hidden="true"></i>
+          </span>
+          <div>
+            <span class="contacts-labi__info-label">Время работы</span>
+            <p>{{contactsLabioplastica.hours}}</p>
+            <small>{{contactsLabioplastica.hoursNote}}</small>
+          </div>
+        </div>
+
+        <div class="contacts-labi__info-row">
+          <span class="contacts-labi__info-icon">
+            <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+          </span>
+          <div>
+            <span class="contacts-labi__info-label">Email</span>
+            <a href="mailto:{{contactsLabioplastica.email}}">{{contactsLabioplastica.email}}</a>
+          </div>
+        </div>
+
+        <div class="contacts-labi__info-row">
+          <span class="contacts-labi__info-icon">
+            <i class="fa-solid fa-phone-volume" aria-hidden="true"></i>
+          </span>
+          <div>
+            <span class="contacts-labi__info-label">Телефон</span>
+            <a href="tel:{{contactsLabioplastica.phoneHref}}">{{contactsLabioplastica.phone}}</a>
+          </div>
+        </div>
+
+        <div class="contacts-labi__aside-actions">
+          <button
+            type="button"
+            class="dart-btn dart-btn-primary dart-btn-block"
+            data-modal-open
+            data-modal-message="{{contactsLabioplastica.cta.message}}"
+          >
+            <i class="fa-regular fa-calendar-check" aria-hidden="true"></i>
+            {{contactsLabioplastica.cta.book}}
+          </button>
+          <a href="tel:{{contactsLabioplastica.phoneHref}}" class="dart-btn dart-btn-outline dart-btn-block">
+            <i class="fa-solid fa-phone" aria-hidden="true"></i>
+            {{contactsLabioplastica.cta.call}}
+          </a>
+        </div>
+      </aside>
+    </div>
+
+    <div class="contacts-labi__map reveal">
+      <div class="contacts-labi__map-canvas" aria-hidden="true">
+        <span class="contacts-labi__map-road contacts-labi__map-road--one"></span>
+        <span class="contacts-labi__map-road contacts-labi__map-road--two"></span>
+        <span class="contacts-labi__map-road contacts-labi__map-road--three"></span>
+        <span class="contacts-labi__map-pin contacts-labi__map-pin--one">
+          <i class="fa-solid fa-location-dot"></i>
+          <b>Очаково</b>
+        </span>
+        <span class="contacts-labi__map-pin contacts-labi__map-pin--two">
+          <i class="fa-solid fa-location-dot"></i>
+          <b>Чертаново</b>
+        </span>
+      </div>
+
+      <div class="contacts-labi__map-panel">
+        <h3>{{contactsLabioplastica.map.title}}</h3>
+        <p>{{contactsLabioplastica.map.text}}</p>
+        <div class="contacts-labi__map-actions">
+          {{#each contactsLabioplastica.clinics}}
+          <a href="{{this.mapUrl}}" class="dart-btn dart-btn-outline" target="_blank" rel="noopener">
+            <i class="fa-solid fa-map-location-dot" aria-hidden="true"></i>
+            {{this.name}}
+          </a>
+          {{/each}}
+        </div>
+        <small>{{contactsLabioplastica.map.note}}</small>
+      </div>
+    </div>
+
+  </div>
+</section>

@@ -1,0 +1,91 @@
+@use '../vars' as *;
+
+// ============================================================
+//  «ПОЧЕМУ ВЫБИРАЮТ НАС» — карточки преимуществ
+// ============================================================
+
+.why-us__header {
+  max-width: 820px;
+}
+
+.why-us__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  @media (max-width: 611px) {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.why-us__card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 30px 28px;
+  overflow: hidden;
+  border: 1.5px solid var(--border);
+  border-radius: $radius;
+  background: var(--white);
+  transition: border-color .25s ease, box-shadow .25s ease, transform .25s ease;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: auto 28px 0 28px;
+    height: 3px;
+    border-radius: 3px 3px 0 0;
+    background: var(--cta-gradient);
+    opacity: 0;
+    transition: opacity .25s ease;
+  }
+
+  &:hover {
+    border-color: var(--brand-lilac);
+    box-shadow: var(--shadow);
+    transform: translateY($hover-lift);
+
+    &::after {
+      opacity: 1;
+    }
+  }
+
+  @media (max-width: $phones) {
+    padding: 24px 22px;
+  }
+}
+
+.why-us__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  margin-bottom: 18px;
+  border-radius: 18px;
+  background: var(--primary-soft);
+  color: var(--primary-color);
+  font-size: 22px;
+}
+
+.why-us__card:nth-child(even) .why-us__icon {
+  background: var(--secondary-soft);
+  color: var(--secondary-color);
+}
+
+.why-us__card-title {
+  font-size: 20px;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+}
+
+.why-us__card-text {
+  margin-top: 10px;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--text-soft);
+}

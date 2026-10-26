@@ -1,0 +1,41 @@
+// ============================================================
+//  ШРИФТЫ
+//
+//  Manrope на заголовках + Open Sans в тексте. Подключаются с Google
+//  Fonts в src/partials/meta.hbs. Гарнитуры задаются на body и
+//  наследуются всеми элементами, включая поля форм.
+// ============================================================
+
+$font-stack: (
+  'Open Sans',
+  -apple-system,
+  BlinkMacSystemFont,
+  'Segoe UI',
+  Roboto,
+  'Helvetica Neue',
+  Arial,
+  sans-serif,
+);
+
+// Manrope чуть шире Open Sans, поэтому в стеке он идёт первым,
+// а текстовый гарнитур остаётся запасным вариантом.
+$font-headings: (
+  'Manrope',
+  $font-stack,
+);
+
+body {
+  font-family: $font-stack;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+// Заголовки — Manrope. Трекинг намеренно не задаётся здесь:
+// у каждого заголовка он уже настроен в своём блоке, и общее
+// правило перебивалось бы более специфичными селекторами.
+h1, h2, h3, h4, h5, h6,
+.h1, .h3 {
+  font-family: $font-headings;
+}

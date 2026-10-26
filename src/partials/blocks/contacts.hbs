@@ -1,0 +1,81 @@
+<section class="section contacts" id="contacts">
+  <div class="dart-container">
+
+    <div class="section__header contacts__header">
+      <div>
+        <span class="section__eyebrow">Контакты</span>
+        <h2>{{site.city}}, {{site.addressShort}}</h2>
+        <p class="section__desc">{{site.hours}}. Работаем без выходных — оставить
+          заявку можно на любой день недели.</p>
+      </div>
+      <div class="contacts__header-cta">
+        <span class="contacts__hours-badge">
+          <i class="fa-solid fa-clock" aria-hidden="true"></i>
+          {{site.hours}}
+        </span>
+        <a href="#booking" class="dart-btn dart-btn-primary">{{contacts.cta.button}}</a>
+      </div>
+    </div>
+
+    <ul class="contacts__cards">
+      {{#each contacts.cards}}
+      <li class="contact-card reveal">
+        <span class="contact-card__icon"><i class="{{this.icon}}" aria-hidden="true"></i></span>
+        <h3 class="contact-card__title">{{this.title}}</h3>
+        <p class="contact-card__value">{{this.value}}</p>
+        <p class="contact-card__note">{{this.note}}</p>
+      </li>
+      {{/each}}
+    </ul>
+
+    <div class="contacts__map-wrap">
+      <div class="contacts__map" data-map data-coords="{{site.coords}}" data-address="{{site.address}}">
+        <div class="contacts__map-fallback">
+          <i class="fa-solid fa-map-location-dot" aria-hidden="true"></i>
+          <p>{{site.address}}</p>
+          <a href="{{site.mapUrl}}" class="dart-btn dart-btn-primary" target="_blank" rel="noopener">
+            Открыть на карте
+          </a>
+        </div>
+      </div>
+
+      <div class="contacts__info">
+        <h3 class="contacts__info-title">{{contacts.cta.title}}</h3>
+        <p class="contacts__info-text">{{contacts.cta.text}}</p>
+
+        <ul class="contacts__routes">
+          {{#each contacts.routes}}
+          <li>
+            <i class="fa-solid fa-circle-chevron-right" aria-hidden="true"></i>
+            <span>{{this}}</span>
+          </li>
+          {{/each}}
+        </ul>
+
+        <div class="contacts__payments">
+          <span class="contacts__payments-label">Оплата:</span>
+          {{#each contacts.payments}}
+          <span class="contacts__payment">{{this}}</span>
+          {{/each}}
+        </div>
+
+        <div class="contacts__messengers">
+          <a href="tel:{{site.phoneHref}}" class="dart-btn dart-btn-outline">
+            <i class="fa-solid fa-phone" aria-hidden="true"></i> Позвонить
+          </a>
+          <a href="{{site.whatsapp}}" class="dart-btn dart-btn-whatsapp" target="_blank" rel="noopener">
+            <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> WhatsApp
+          </a>
+          <a href="{{site.telegram}}" class="dart-btn dart-btn-telegram" target="_blank" rel="noopener">
+            <i class="fa-brands fa-telegram" aria-hidden="true"></i> Telegram
+          </a>
+        </div>
+
+        <p class="contacts__phone">
+          <a href="tel:{{site.phoneHref}}">{{site.phone}}</a>
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>

@@ -1,0 +1,86 @@
+@use '../vars' as *;
+
+// ============================================================
+//  2. TRUST BAR — 6 карточек, иконка над текстом
+//
+//  Вариант выбран потому, что в прошлом иконка стояла слева
+//  от текста и съедала 54px из 217px колонки: на текст оставалось
+//  123px, и «Сертифицированные» (141px) обрезалось.
+//  Теперь иконка сверху, текст получает всю ширину колонки,
+//  а разделители сделаны настоящими рамками карточек — отступы
+//  слева и справа симметричны на любом брейкпоинте.
+// ============================================================
+
+.trust {
+  padding: $space-2 0 $space-10;
+  // отрицательный отступ намеренно поднимает блок поверх hero
+  margin-top: -$space-7;
+  position: relative;
+  z-index: 2;
+
+  @media (max-width: $tablets) { padding-bottom: $space-7; margin-top: -$space-4; }
+}
+
+.trust__grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: $space-3;
+
+  @media (max-width: 1200px) { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  @media (max-width: 611px) { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+.trust__item {
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+  padding: $space-5 $space-4;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: $radius;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow .25s ease, transform .25s ease, border-color .25s ease;
+
+  &:hover {
+    border-color: var(--border-2);
+    box-shadow: var(--shadow);
+    transform: translateY($hover-lift);
+  }
+
+  @media (max-width: 611px) { padding: $space-4 $space-3; }
+}
+
+.trust__icon {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: $radius-sm;
+  background: var(--primary-soft);
+  color: var(--primary-color);
+  font-size: 18px;
+}
+
+.trust__body {
+  min-width: 0;
+
+  // страховка: ни одно слово не обрежется, даже если в тексте
+  // попадётся очень длинное или URL
+  overflow-wrap: break-word;
+}
+
+.trust__title {
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+
+.trust__text {
+  margin-top: $space-1;
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--text-muted);
+}

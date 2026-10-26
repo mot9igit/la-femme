@@ -1,0 +1,144 @@
+<header class="dart_header" id="top" data-header>
+  <div class="header">
+
+    <div class="header__top">
+      <div class="dart-container header__top-inner">
+
+        <a href="{{rootHref "#top"}}" class="header__logo" aria-label="Ля Фамм — на главную">
+          <img src="/assets/img/logo_pink.png" alt="Ля Фамм" width="200" height="91" fetchpriority="high">
+        </a>
+
+        <div class="header__info">
+          <div class="header__phones" aria-label="Телефоны клиники">
+            {{#each site.phones}}
+            <a href="tel:{{this.href}}" class="header__phone">
+              <span class="header__phone-label">{{this.label}}</span>
+              <span class="header__phone-value">{{this.value}}</span>
+            </a>
+            {{/each}}
+          </div>
+
+          <div class="header__hours">
+            <i class="fa-regular fa-clock" aria-hidden="true"></i>
+            <span>с 9:00 до 20:00</span>
+          </div>
+
+          <button type="button" class="dart-btn dart-btn-primary header__cta" data-modal-open aria-haspopup="dialog" aria-controls="booking-modal">
+            <i class="fa-regular fa-calendar-check" aria-hidden="true"></i>
+            Запись на прием
+          </button>
+
+          <button type="button" class="header__burger" aria-label="Открыть меню" aria-expanded="false" aria-controls="mobile-menu" data-burger>
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="header__navrow">
+      <div class="dart-container header__nav-inner">
+        <nav class="header-nav" aria-label="Основная навигация">
+          <ul class="header-nav__list">
+            {{#each nav}}
+            <li class="header-nav__item{{#if this.children}} header-nav__item--has-children{{/if}}">
+              <a href="{{rootHref this.href}}" data-nav-link{{#if this.static}} data-nav-static{{/if}}>
+                {{this.label}}
+                {{#if this.children}}
+                <i class="fa-solid fa-chevron-down header-nav__caret" aria-hidden="true"></i>
+                {{/if}}
+              </a>
+
+              {{#if this.children}}
+              <ul class="header-nav__dropdown">
+                {{#each this.children}}
+                <li class="header-nav__child{{#if this.children}} header-nav__child--has-children{{/if}}">
+                  <a href="{{rootHref this.href}}">
+                    <span>{{this.label}}</span>
+                    {{#if this.children}}
+                    <i class="fa-solid fa-chevron-right header-nav__arrow" aria-hidden="true"></i>
+                    {{/if}}
+                  </a>
+
+                  {{#if this.children}}
+                  <ul class="header-nav__submenu">
+                    {{#each this.children}}
+                    <li><a href="{{rootHref this.href}}">{{this.label}}</a></li>
+                    {{/each}}
+                  </ul>
+                  {{/if}}
+                </li>
+                {{/each}}
+              </ul>
+              {{/if}}
+            </li>
+            {{/each}}
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="mobile-menu" id="mobile-menu" data-mobile-menu hidden>
+    <nav class="mobile-menu__nav" aria-label="Мобильная навигация">
+      {{#each nav}}
+        {{#if this.children}}
+        <details class="mobile-menu__group">
+          <summary>
+            <span>{{this.label}}</span>
+            <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+          </summary>
+          <div class="mobile-menu__sub">
+            <a href="{{rootHref this.href}}">{{this.label}}</a>
+            {{#each this.children}}
+              {{#if this.children}}
+              <details class="mobile-menu__group mobile-menu__group--nested">
+                <summary>
+                  <span>{{this.label}}</span>
+                  <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+                </summary>
+                <div class="mobile-menu__sub">
+                  <a href="{{rootHref this.href}}">{{this.label}}</a>
+                  {{#each this.children}}
+                  <a href="{{rootHref this.href}}">{{this.label}}</a>
+                  {{/each}}
+                </div>
+              </details>
+              {{else}}
+              <a href="{{rootHref this.href}}">{{this.label}}</a>
+              {{/if}}
+            {{/each}}
+          </div>
+        </details>
+        {{else}}
+        <a href="{{rootHref this.href}}">{{this.label}}</a>
+        {{/if}}
+      {{/each}}
+    </nav>
+
+    <div class="mobile-menu__phones">
+      {{#each site.phones}}
+      <a href="tel:{{this.href}}" class="mobile-menu__phone">
+        <span class="mobile-menu__phone-label">{{this.label}}</span>
+        <span class="mobile-menu__phone-value">{{this.value}}</span>
+      </a>
+      {{/each}}
+    </div>
+
+    <div class="mobile-menu__actions">
+      <button type="button" class="dart-btn mobile-menu__cta" data-modal-open aria-haspopup="dialog" aria-controls="booking-modal">
+        <i class="fa-regular fa-calendar-check" aria-hidden="true"></i>
+        Запись на прием
+      </button>
+    </div>
+
+    <div class="mobile-menu__foot">
+      <span>
+        <i class="fa-regular fa-clock" aria-hidden="true"></i>
+        с 9:00 до 20:00
+      </span>
+      <span>Ежедневно</span>
+    </div>
+  </div>
+</header>

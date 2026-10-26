@@ -1,0 +1,49 @@
+<section class="section section--center equipment" id="equipment" aria-labelledby="equipment-title">
+  <div class="dart-container">
+
+    <div class="section__header equipment__header reveal">
+      <span class="section__eyebrow">{{equipment.eyebrow}}</span>
+      <h2 id="equipment-title">{{equipment.title}}</h2>
+    </div>
+
+    <div class="equipment__media reveal">
+      {{#each equipment.images}}
+      <div class="equipment__photo">
+        <img
+          src="{{this.src}}"
+          alt="{{this.alt}}"
+          width="{{this.width}}"
+          height="{{this.height}}"
+          loading="lazy"
+          decoding="async"
+        >
+      </div>
+      {{/each}}
+    </div>
+
+    <div class="equipment__body">
+      <div class="equipment__content reveal">
+        <p class="equipment__intro">{{equipment.intro}}</p>
+
+        <p class="equipment__note">
+          <span class="equipment__note-icon">
+            <i class="fa-solid fa-microscope" aria-hidden="true"></i>
+          </span>
+          <span>{{equipment.note}}</span>
+        </p>
+      </div>
+
+      <ul class="equipment__list reveal">
+        {{#each equipment.advantages}}
+        <li class="equipment__item">
+          <span class="equipment__check">
+            <i class="fa-solid fa-check" aria-hidden="true"></i>
+          </span>
+          <span>{{this}}</span>
+        </li>
+        {{/each}}
+      </ul>
+    </div>
+
+  </div>
+</section>

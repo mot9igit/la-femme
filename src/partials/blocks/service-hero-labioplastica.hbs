@@ -1,0 +1,107 @@
+<section class="service-hero" aria-labelledby="service-hero-title">
+  <div class="dart-container">
+    <nav class="service-breadcrumbs" aria-label="Хлебные крошки">
+      <ol class="service-breadcrumbs__list">
+        {{#each page.breadcrumbs}}
+        <li class="service-breadcrumbs__item">
+          {{#if this.href}}
+          <a href="{{this.href}}">{{this.label}}</a>
+          {{else}}
+          <span aria-current="page">{{this.label}}</span>
+          {{/if}}
+        </li>
+        {{/each}}
+      </ol>
+    </nav>
+  </div>
+
+  <div class="dart-container service-hero__inner">
+
+    <div class="service-hero__content">
+      <h1 class="service-hero__title" id="service-hero-title">{{serviceHero.title}}</h1>
+      <p class="service-hero__lead">{{serviceHero.subtitle}}</p>
+
+      <ul class="service-hero__proof" aria-label="Доверие">
+        {{#each serviceHero.proof}}
+        <li class="service-hero__proof-item">
+          <i class="{{this.icon}}" aria-hidden="true"></i>
+          <span>{{this.text}}</span>
+        </li>
+        {{/each}}
+      </ul>
+
+      <ul class="service-hero__benefits" aria-label="Преимущества">
+        {{#each serviceHero.benefits}}
+        <li class="service-hero__benefit">
+          <span class="service-hero__benefit-icon">
+            <i class="{{this.icon}}" aria-hidden="true"></i>
+          </span>
+          <span class="service-hero__benefit-text">{{this.text}}</span>
+        </li>
+        {{/each}}
+      </ul>
+    </div>
+
+    <div class="service-hero__card">
+      <figure class="service-hero__doctor">
+        <div class="service-hero__doctor-photo">
+          <img
+            src="{{serviceHero.doctor.photo}}"
+            alt="{{serviceHero.doctor.name}} — {{serviceHero.doctor.role}}"
+            width="1024"
+            height="1024"
+            fetchpriority="high"
+          >
+        </div>
+
+        <figcaption class="service-hero__doctor-body">
+          <span class="service-hero__doctor-role">{{serviceHero.doctor.role}}</span>
+          <strong class="service-hero__doctor-name">{{serviceHero.doctor.name}}</strong>
+          <span class="service-hero__doctor-exp">
+            <i class="fa-solid fa-award" aria-hidden="true"></i>
+            {{serviceHero.doctor.experience}}
+          </span>
+        </figcaption>
+      </figure>
+
+      <div class="service-hero__offer">
+        <div class="service-hero__price">
+          <span class="service-hero__price-label">{{serviceHero.priceLabel}}</span>
+          <strong class="service-hero__price-value">{{money serviceHero.price}}</strong>
+        </div>
+        <p class="service-hero__price-note">{{serviceHero.priceNote}}</p>
+
+        <div class="service-hero__actions">
+          <button
+            type="button"
+            class="dart-btn dart-btn-primary dart-btn-block"
+            data-modal-open
+            data-modal-message="{{serviceHero.primaryCta.message}}"
+            aria-haspopup="dialog"
+            aria-controls="booking-modal"
+          >
+            {{serviceHero.primaryCta.label}}
+            <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+          </button>
+
+          <button
+            type="button"
+            class="dart-btn dart-btn-outline dart-btn-block"
+            data-modal-open
+            data-modal-message="{{serviceHero.secondaryCta.message}}"
+            aria-haspopup="dialog"
+            aria-controls="booking-modal"
+          >
+            {{serviceHero.secondaryCta.label}}
+          </button>
+        </div>
+
+        <p class="service-hero__disclaimer">
+          <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+          <span>{{serviceHero.disclaimer}}</span>
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>

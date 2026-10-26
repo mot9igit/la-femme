@@ -1,0 +1,128 @@
+<section class="section booking" id="booking">
+  <div class="dart-container">
+    <div class="booking__card" data-booking-card>
+
+      <div class="booking__left">
+        <span class="section__eyebrow booking__eyebrow">
+          <span class="booking__dot" aria-hidden="true"></span>
+          {{booking.eyebrow}}
+        </span>
+        <h2 class="booking__title">{{booking.title}}</h2>
+        <p class="booking__text">{{booking.text}}</p>
+
+        <ul class="booking__perks">
+          {{#each booking.perks}}
+          <li>
+            <i class="{{this.icon}}" aria-hidden="true"></i>
+            <span>{{this.text}}</span>
+          </li>
+          {{/each}}
+        </ul>
+
+        <div class="booking__alt">
+          <span class="booking__alt-label">Не хотите заполнять форму?</span>
+          <div class="booking__alt-actions">
+            <a href="tel:{{site.phoneHref}}" class="booking__alt-phone">
+              <i class="fa-solid fa-phone" aria-hidden="true"></i> {{site.phone}}
+            </a>
+            <a href="{{site.whatsapp}}" class="booking__alt-msg booking__alt-msg--wa" target="_blank" rel="noopener" aria-label="Написать в WhatsApp">
+              <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+            </a>
+            <a href="{{site.telegram}}" class="booking__alt-msg booking__alt-msg--tg" target="_blank" rel="noopener" aria-label="Написать в Telegram">
+              <i class="fa-brands fa-telegram" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="booking__right">
+        <form class="booking__form" data-booking-form action="{{booking.action}}" method="post" novalidate>
+          <div class="booking__form-row">
+            <label class="dart-field booking__field">
+              <span class="dart-field__label">Как к вам обращаться <span>*</span></span>
+              <input type="text" name="name" placeholder="Имя" autocomplete="name" required data-validate="name">
+              <span class="dart-field__error">Как к вам обращаться?</span>
+            </label>
+
+            <label class="dart-field booking__field">
+              <span class="dart-field__label">Телефон <span>*</span></span>
+              <input type="tel" name="phone" placeholder="+7 (___) ___-__-__" autocomplete="tel" required data-validate="phone" inputmode="tel">
+              <span class="dart-field__error">Укажите телефон, по нему перезвоним</span>
+            </label>
+          </div>
+
+          <div class="booking__form-row">
+            <label class="dart-field booking__field">
+              <span class="dart-field__label">Услуга</span>
+              <select name="service" data-booking-service-select>
+                {{#each booking.serviceOptions}}
+                <option value="{{this}}">{{this}}</option>
+                {{/each}}
+              </select>
+            </label>
+
+            <label class="dart-field booking__field">
+              <span class="dart-field__label">Специалист</span>
+              <select name="specialist" data-booking-specialist-select>
+                <option value="">Любой свободный специалист</option>
+                {{#each team}}
+                <option value="{{this.name}}">{{this.name}} — {{this.role}}</option>
+                {{/each}}
+              </select>
+            </label>
+          </div>
+
+          <div class="booking__form-row">
+            <label class="dart-field booking__field">
+              <span class="dart-field__label">Удобная дата</span>
+              <input type="date" name="date" data-booking-date>
+              <span class="dart-field__error">Выберите удобную дату</span>
+            </label>
+
+            <label class="dart-field booking__field">
+              <span class="dart-field__label">Удобное время</span>
+              <select name="time">
+                {{#each booking.timeOptions}}
+                <option value="{{this}}">{{this}}</option>
+                {{/each}}
+              </select>
+            </label>
+          </div>
+
+          <label class="dart-field booking__field booking__field--full">
+            <span class="dart-field__label">Комментарий <span>(необязательно)</span></span>
+            <textarea name="comment" rows="3" placeholder="Коротко опишите задачу, сроки и пожелания"></textarea>
+          </label>
+
+          <label class="dart-consent booking__consent">
+            <input type="checkbox" name="consent" required data-validate="consent">
+            <span>{{booking.consent}}</span>
+          </label>
+
+          <button type="submit" class="dart-btn dart-btn-primary dart-btn-large dart-btn-block booking__submit">
+            Оставить заявку
+            <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+          </button>
+
+          <p class="booking__note">
+            <i class="fa-solid fa-lock" aria-hidden="true"></i>
+            Без предоплаты. Данные не передаём третьим лицам.
+          </p>
+
+          <div class="booking__success" data-form-success data-booking-success hidden>
+            <span class="booking__success-icon"><i class="fa-solid fa-circle-check" aria-hidden="true"></i></span>
+            <h3 class="booking__success-title">{{booking.success.title}}</h3>
+            <p class="booking__success-text">{{booking.success.text}}</p>
+            <div class="booking__success-actions">
+              <a href="tel:{{site.phoneHref}}" class="dart-btn dart-btn-primary">Позвонить сейчас</a>
+              <a href="{{site.whatsapp}}" class="dart-btn dart-btn-whatsapp" target="_blank" rel="noopener">
+                <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> WhatsApp
+              </a>
+            </div>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>

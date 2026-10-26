@@ -1,0 +1,41 @@
+// ============================================================
+//  Глобальные стили
+//  Порядок: токены -> сброс -> шрифты -> сетка -> база -> блоки
+// ============================================================
+
+@use 'vars' as *;
+@use 'reset';
+@use 'fonts';
+@use 'grid';
+@use 'base';
+@use 'header';
+@use 'blocks/hero';
+@use 'blocks/service-hero';
+@use 'blocks/why-us';
+@use 'blocks/how-it-goes';
+@use 'blocks/price-includes';
+@use 'blocks/indications';
+@use 'blocks/techniques';
+@use 'blocks/equipment';
+@use 'blocks/recovery';
+@use 'blocks/trust';
+@use 'blocks/services';
+@use 'blocks/benefits';
+@use 'blocks/process';
+@use 'blocks/team';
+@use 'blocks/portfolio';
+@use 'blocks/reviews';
+@use 'blocks/special';
+@use 'blocks/contacts';
+@use 'blocks/contacts-labioplastica';
+@use 'blocks/seo-labioplastica';
+@use 'blocks/faq';
+@use 'blocks/booking';
+@use 'blocks/modal';
+@use 'blocks/cookie-consent';
+@use 'blocks/cases';
+@use 'blocks/reviews-labioplastica';
+@use 'blocks/doctor';
+@use 'blocks/licenses';
+@use 'blocks/footer';
+@use 'sticky-cta';

@@ -1,0 +1,73 @@
+<section class="section section--accent doctor" id="doctor" aria-labelledby="doctor-title">
+  <div class="dart-container">
+    <div class="doctor__grid">
+
+      <div class="doctor__media reveal">
+        <div class="doctor__photo-frame">
+          <img
+            class="doctor__photo"
+            src="{{doctor.photo}}"
+            alt="{{doctor.photoAlt}}"
+            width="1024"
+            height="1024"
+            loading="lazy"
+            decoding="async"
+          >
+          <span class="doctor__badge">
+            <i class="fa-solid fa-award" aria-hidden="true"></i>
+            {{doctor.experience}}
+          </span>
+        </div>
+      </div>
+
+      <div class="doctor__content reveal">
+        <span class="section__eyebrow">{{doctor.eyebrow}}</span>
+        <h2 id="doctor-title">{{doctor.name}}</h2>
+
+        <p class="doctor__role">
+          <i class="fa-solid fa-user-doctor" aria-hidden="true"></i>
+          {{doctor.role}}
+        </p>
+
+        <p class="doctor__lead">{{doctor.lead}}</p>
+
+        <ul class="doctor__stats" aria-label="Ключевые факты о враче">
+          {{#each doctor.stats}}
+          <li class="doctor__stat">
+            <strong>{{this.value}}</strong>
+            <span>{{this.label}}</span>
+          </li>
+          {{/each}}
+        </ul>
+
+        <p class="doctor__method">{{doctor.method}}</p>
+
+        <div class="doctor__tech">
+          <h3 class="doctor__tech-title">{{doctor.techTitle}}</h3>
+          <ul class="doctor__tech-list">
+            {{#each doctor.tech}}
+            <li>{{this}}</li>
+            {{/each}}
+          </ul>
+          <p class="doctor__tech-note">{{doctor.techNote}}</p>
+        </div>
+
+        <div class="doctor__actions">
+          <button
+            type="button"
+            class="dart-btn dart-btn-primary"
+            data-modal-open
+            data-modal-message="{{doctor.cta.message}}"
+          >
+            {{doctor.cta.label}}
+          </button>
+          <a href="tel:{{site.phoneHref}}" class="dart-btn dart-btn-outline">
+            <i class="fa-solid fa-phone" aria-hidden="true"></i>
+            Позвонить
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

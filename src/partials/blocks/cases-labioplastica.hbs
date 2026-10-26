@@ -1,0 +1,125 @@
+<section class="section section--center cases" id="cases" aria-labelledby="cases-title" data-case-gate>
+  <div class="dart-container">
+
+    <div class="section__header cases__header reveal">
+      <span class="section__eyebrow">{{cases.eyebrow}}</span>
+      <h2 id="cases-title">{{cases.title}}</h2>
+      <p class="section__desc">{{cases.text}}</p>
+    </div>
+
+    <div class="cases__locked reveal" data-case-locked>
+      <div class="cases__preview" aria-hidden="true">
+        <span class="cases__preview-tile"></span>
+        <span class="cases__preview-tile"></span>
+        <span class="cases__preview-tile"></span>
+        <span class="cases__preview-tile"></span>
+        <span class="cases__preview-lock">
+          <i class="fa-solid fa-lock" aria-hidden="true"></i>
+          <span>18+</span>
+        </span>
+      </div>
+
+      <div class="cases__gate">
+        <span class="cases__age">18+</span>
+        <h3 class="cases__gate-title">Фото до и после</h3>
+        <p class="cases__gate-text">
+          Фотографии содержат интимные детали и доступны только совершеннолетним пользователям.
+        </p>
+        <button
+          type="button"
+          class="dart-btn dart-btn-primary cases__gate-btn"
+          data-age-open
+          aria-haspopup="dialog"
+          aria-controls="age-modal"
+        >
+          <i class="fa-solid fa-eye" aria-hidden="true"></i>
+          Показать фото
+        </button>
+        <p class="cases__consent">Фотографии опубликованы с письменного согласия пациенток.</p>
+      </div>
+    </div>
+
+    <div class="cases__grid" data-case-grid tabindex="-1" hidden>
+      {{#each cases.items}}
+      <article class="cases__card reveal">
+        <div class="cases__photos">
+          <figure class="cases__photo">
+            <span class="cases__photo-placeholder" aria-hidden="true"></span>
+            <img
+              src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
+              data-src="{{this.before}}"
+              alt="До лабиопластики — {{this.name}}"
+              width="370"
+              height="370"
+              loading="lazy"
+              decoding="async"
+              data-case-photo
+            >
+            <figcaption>До</figcaption>
+          </figure>
+
+          <figure class="cases__photo">
+            <span class="cases__photo-placeholder" aria-hidden="true"></span>
+            <img
+              src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
+              data-src="{{this.after}}"
+              alt="После лабиопластики — {{this.name}}"
+              width="370"
+              height="370"
+              loading="lazy"
+              decoding="async"
+              data-case-photo
+            >
+            <figcaption>После</figcaption>
+          </figure>
+        </div>
+
+        <div class="cases__body">
+          <h3 class="cases__name">{{this.name}}</h3>
+          <dl class="cases__details">
+            <div class="cases__detail">
+              <dt>Жалобы</dt>
+              <dd>{{this.complaints}}</dd>
+            </div>
+            <div class="cases__detail">
+              <dt>Операция</dt>
+              <dd>{{this.surgery}}</dd>
+            </div>
+            <div class="cases__detail">
+              <dt>Результат</dt>
+              <dd>{{this.result}}</dd>
+            </div>
+          </dl>
+          <p class="cases__doctor">Хирург: <strong>{{this.doctor}}</strong></p>
+        </div>
+      </article>
+      {{/each}}
+
+      <p class="cases__note">Фотографии опубликованы с письменного согласия пациенток.</p>
+    </div>
+
+    <dialog class="modal modal--age" id="age-modal" data-age-modal aria-labelledby="age-modal-title">
+      <div class="modal__inner">
+        <button type="button" class="modal__close" data-age-close aria-label="Закрыть">
+          <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+        </button>
+
+        <div class="modal__head">
+          <span class="modal__eyebrow">18+</span>
+          <h2 class="modal__title" id="age-modal-title">{{cases.ageGate.title}}</h2>
+          <p class="modal__text">{{cases.ageGate.text}}</p>
+        </div>
+
+        <div class="age-modal__actions">
+          <button type="button" class="dart-btn dart-btn-primary" data-age-confirm>
+            {{cases.ageGate.confirm}}
+          </button>
+          <button type="button" class="dart-btn dart-btn-outline" data-age-deny>
+            {{cases.ageGate.deny}}
+          </button>
+        </div>
+      </div>
+    </dialog>
+
+  </div>
+</section>

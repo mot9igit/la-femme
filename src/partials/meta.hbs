@@ -1,0 +1,35 @@
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<script>document.documentElement.classList.add('js')</script>
+
+<title>{{#if page}}{{page.title}}{{else}}{{site.name}} — {{hero.title}}{{/if}}</title>
+<meta name="description" content="{{#if page}}{{page.description}}{{else}}{{site.name}}: {{hero.subtitle}}{{/if}}">
+<link rel="canonical" href="{{#if page}}{{site.url}}{{page.path}}{{else}}{{site.url}}{{/if}}">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:site_name" content="{{#if page}}{{page.siteName}}{{else}}{{site.name}}{{/if}}">
+<meta property="og:title" content="{{#if page}}{{page.title}}{{else}}{{site.name}} — {{hero.title}}{{/if}}">
+<meta property="og:description" content="{{#if page}}{{page.description}}{{else}}{{hero.subtitle}}{{/if}}">
+<meta property="og:image" content="{{#if page}}{{site.url}}{{page.image}}{{else}}{{site.url}}assets/img/placeholders/hero-bg.svg{{/if}}">
+<meta property="og:url" content="{{#if page}}{{site.url}}{{page.path}}{{else}}{{site.url}}{{/if}}">
+<meta name="twitter:card" content="summary_large_image">
+
+<meta name="geo.region" content="RU">
+<meta name="geo.placename" content="{{site.city}}">
+<meta name="geo.position" content="{{site.coords}}">
+<meta name="ICBM" content="{{site.coords}}">
+
+<meta name="theme-color" content="#C63678">
+<meta name="msapplication-TileColor" content="#C63678">
+<link rel="icon" href="/favicon.ico" sizes="any">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Open+Sans:wght@300..800&display=swap" referrerpolicy="no-referrer">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" referrerpolicy="no-referrer">
+
+<link rel="stylesheet" href="/src/styles/global.scss">

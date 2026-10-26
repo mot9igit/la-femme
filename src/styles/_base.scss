@@ -1,0 +1,514 @@
+@use 'sass:math';
+@use 'vars' as *;
+
+html,
+body {
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+.dart_wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.dart_main {
+  flex: 1 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.dart_footer {
+  flex: 0 0 auto;
+}
+
+/* ---------------------------------------------------------------
+   КНОПКИ
+---------------------------------------------------------------- */
+.dart-btn {
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 18px 32px;
+  border-radius: $radius-pill;
+  font-family: inherit;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 17px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  text-align: center;
+  cursor: pointer;
+  border: 1.5px solid transparent;
+  transition: background-color .2s ease, color .2s ease, border-color .2s ease,
+    box-shadow .2s ease, transform .2s ease;
+
+  i, svg {
+    font-size: 1.05em;
+    line-height: 1;
+  }
+
+  &.dart-btn-primary {
+    background: var(--cta-gradient);
+    color: var(--white);
+    box-shadow: 0 8px 20px rgba(198, 54, 120, .22);
+    &:hover {
+      color: var(--white);
+      box-shadow: 0 12px 26px rgba(198, 54, 120, .3);
+      transform: translateY(-1px);
+    }
+  }
+
+  &.dart-btn-secondary {
+    color: var(--primary-color);
+    background: var(--primary-soft);
+    border-color: transparent;
+    &:hover {
+      background: var(--brand-lilac);
+      border-color: var(--primary-color);
+      color: var(--primary-color);
+    }
+  }
+
+  &.dart-btn-outline {
+    color: var(--text);
+    background: var(--white);
+    border-color: var(--border-2);
+    &:hover {
+      border-color: var(--primary-color);
+      color: var(--primary-color);
+    }
+  }
+
+  &.dart-btn-teal {
+    color: var(--white);
+    background: var(--secondary-color);
+    &:hover {
+      color: var(--white);
+      background: #0B5F58;
+    }
+  }
+
+  &.dart-btn-whatsapp {
+    color: var(--white);
+    background: #25D366;
+    &:hover { color: var(--white); background: #1EB152; }
+  }
+
+  &.dart-btn-telegram {
+    color: var(--white);
+    background: #2AABEE;
+    &:hover { color: var(--white); background: #1B8FCB; }
+  }
+
+  &.dart-btn-ghost-light {
+    color: var(--white);
+    background: rgba(255, 255, 255, .12);
+    border-color: rgba(255, 255, 255, .4);
+    backdrop-filter: blur(6px);
+    &:hover {
+      background: var(--white);
+      color: var(--primary-bg);
+      border-color: var(--white);
+    }
+  }
+
+  &.dart-btn-block {
+    display: flex;
+    width: 100%;
+  }
+
+  &.dart-btn-small {
+    padding: 11px 20px;
+    font-size: 15px;
+  }
+
+  &.dart-btn-large {
+    padding: 22px 42px;
+    font-size: 19px;
+  }
+
+  @media (max-width: $tablets) {
+    padding: 16px 26px;
+    font-size: 16px;
+    &.dart-btn-large { padding: 18px 30px; font-size: 17px; }
+  }
+  @media (max-width: $phones) {
+    padding: 15px 22px;
+    font-size: 15px;
+  }
+}
+
+/* текстовая ссылка-кнопка со стрелкой */
+.dart-link-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 17px;
+  line-height: 1.3;
+  color: var(--primary-color);
+  transition: gap .2s ease, opacity .2s ease;
+  &:hover { gap: 14px; opacity: .85; }
+}
+
+/* ---------------------------------------------------------------
+   СЕКЦИИ
+---------------------------------------------------------------- */
+.section {
+  padding: $section-y 0;
+  position: relative;
+  overflow-x: hidden;
+
+  &__header {
+    margin-bottom: $space-9;
+  }
+
+  &__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: $space-2;
+    padding: $space-2 $space-4;
+    margin-bottom: $space-5;
+    border-radius: $radius-pill;
+    background: var(--primary-soft);
+    color: var(--primary-color);
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 1.2;
+    letter-spacing: .02em;
+    text-transform: uppercase;
+  }
+
+  h2 {
+    max-width: 900px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 56px;
+    line-height: 1.12;
+    letter-spacing: -0.025em;
+    color: var(--text);
+  }
+
+  &__desc {
+    display: block;
+    max-width: 680px;
+    margin-top: $space-5;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 1.5;
+    color: var(--text-soft);
+    a {
+      color: var(--primary-color);
+      text-decoration: underline;
+      &:hover { text-decoration: none; }
+    }
+  }
+
+  &--center &__header {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    h2 { margin-left: auto; margin-right: auto; }
+    .section__desc { margin-left: auto; margin-right: auto; }
+  }
+
+  &--tinted { background: var(--surface); }
+  &--tinted-2 { background: var(--secondary-soft); }
+
+  &--accent {
+    background: linear-gradient(160deg, #F6F0FE 0%, #E9FBFC 100%);
+  }
+
+  &--compact { padding: $section-y-compact 0; }
+
+  @media (max-width: $small-desktop) {
+    padding: $section-y-md 0;
+    h2 { font-size: 42px; }
+    &__desc { font-size: 18px; }
+    &--compact { padding: $section-y-compact-md 0; }
+  }
+  @media (max-width: $tablets) {
+    padding: $section-y-sm 0;
+    &__header { margin-bottom: $space-7; }
+    &__eyebrow { font-size: 12px; margin-bottom: $space-3; }
+    h2 { font-size: 30px; }
+    &__desc { font-size: 16px; margin-top: $space-3; }
+    &--compact { padding: $section-y-compact-sm 0; }
+  }
+}
+
+/* ---------------------------------------------------------------
+   ФОКУС — единый для всех интерактивных элементов
+   Правило намеренно на нулевой специфичности (:where), поэтому
+   компоненты могут переопределить его: так поля формы сохраняют
+   свой брендированный контур (border-color + box-shadow).
+   border-radius здесь не задаётся — иначе сфокусированная
+   кнопка-пилюля потеряла бы форму.
+---------------------------------------------------------------- */
+:where(a, button, summary, [tabindex]):focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 3px;
+}
+
+/* ---------------------------------------------------------------
+   БАЗОВАЯ ТИПОГРАФИКА
+---------------------------------------------------------------- */
+h1, .h1 {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 64px;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  color: var(--text);
+  @media (max-width: $small-desktop) { font-size: 46px; }
+  @media (max-width: $tablets) { font-size: 31px; }
+}
+
+h3, .h3 {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  @media (max-width: $tablets) { font-size: 21px; }
+}
+
+p {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--text);
+}
+
+.text-center { text-align: center; }
+.text-muted { color: var(--text-muted); }
+
+/* список с галочкой */
+ul.check-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  li {
+    position: relative;
+    padding-left: 34px;
+    font-size: 17px;
+    line-height: 1.45;
+    color: var(--text-soft);
+    & + li { margin-top: 14px; }
+    &::before {
+      content: '\f00c';
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 900;
+      position: absolute;
+      left: 0;
+      top: 2px;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--secondary-soft);
+      color: var(--secondary-color);
+      font-size: 11px;
+      line-height: 22px;
+      text-align: center;
+    }
+  }
+  @media (max-width: $tablets) { li { font-size: 15px; } }
+}
+
+/* ---------------------------------------------------------------
+   ФОРМЫ
+---------------------------------------------------------------- */
+.dart-field {
+  display: block;
+  margin-bottom: 16px;
+
+  &__label {
+    display: block;
+    margin-bottom: 8px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.3;
+    color: var(--text-soft);
+    span { color: var(--text-muted); }
+  }
+
+  input,
+  select,
+  textarea {
+    display: block;
+    width: 100%;
+    padding: 16px 18px;
+    border: 1.5px solid var(--border);
+    border-radius: $radius-sm;
+    background: var(--white);
+    color: var(--text);
+    font-family: inherit;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.3;
+    outline: none;
+    transition: border-color .2s ease, box-shadow .2s ease;
+    appearance: none;
+
+    &::placeholder { color: #A9A6B4; }
+
+    &:focus {
+      border-color: var(--brand-lilac);
+      box-shadow: 0 0 0 4px var(--primary-soft);
+    }
+  }
+
+  select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%2355525F'%3E%3Cpath d='M8 11L2.5 4.5h11z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    background-size: 14px;
+    padding-right: 44px;
+    cursor: pointer;
+  }
+
+  &.has-error input,
+  &.has-error select {
+    border-color: #E5484D;
+  }
+
+  &__error {
+    display: none;
+    margin-top: 6px;
+    font-size: 13px;
+    line-height: 1.3;
+    color: #E5484D;
+  }
+
+  &.has-error &__error { display: block; }
+}
+
+/* чекбокс согласия */
+.dart-consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--text-muted);
+  input {
+    flex: 0 0 auto;
+    width: 20px;
+    height: 20px;
+    margin: 1px 0 0;
+    accent-color: var(--primary-color);
+    cursor: pointer;
+  }
+  a { color: var(--primary-color); text-decoration: underline; }
+
+  &.has-error {
+    color: #E5484D;
+    input { accent-color: #E5484D; }
+  }
+}
+
+/* ---------------------------------------------------------------
+   ЧИПЫ / ФИЛЬТРЫ
+---------------------------------------------------------------- */
+.dart-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+
+  &__btn {
+    padding: 11px 22px;
+    border: 1.5px solid var(--border-2);
+    border-radius: $radius-pill;
+    background: var(--white);
+    color: var(--text-soft);
+    font-family: inherit;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 1.2;
+    cursor: pointer;
+    transition: all .2s ease;
+    white-space: nowrap;
+
+    &:hover {
+      border-color: var(--brand-lilac);
+      color: var(--primary-color);
+    }
+
+    &.is-active {
+      background: var(--cta-gradient);
+      border-color: transparent;
+      color: var(--white);
+    }
+
+    @media (max-width: $tablets) { font-size: 14px; padding: 9px 16px; }
+  }
+}
+
+/* ---------------------------------------------------------------
+   РЕЙТИНГ (звёзды)
+---------------------------------------------------------------- */
+.rating-stars {
+  display: inline-flex;
+  gap: 3px;
+  color: #FFB020;
+  font-size: 14px;
+  i { font-size: inherit; }
+}
+
+/* ---------------------------------------------------------------
+   УТИЛИТЫ
+---------------------------------------------------------------- */
+.dart-hidden { display: none !important; }
+
+.dart-spacer-2 { height: 24px; }
+.dart-spacer-4 { height: 40px; }
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* плавная прокрутка к форме */
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+/* якоря не должны упираться в липкую шапку и в мобильную панель CTA */
+section[id] { scroll-margin-top: calc(var(--header-h) + 16px); }
+@media (max-width: 991px) {
+  section[id] { scroll-margin-bottom: 92px; }
+}
+
+/* появление блоков при скролле (только если JS доступен, иначе контент виден сразу) */
+.js .reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity .6s ease, transform .6s ease;
+}
+.js .reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .js .reveal { opacity: 1; transform: none; transition: none; }
+}

@@ -1,0 +1,141 @@
+@use '../vars' as *;
+
+// ============================================================
+//  «КОГДА МОЖЕТ БЫТЬ РЕКОМЕНДОВАНА ЛАБИОПЛАСТИКА»
+// ============================================================
+
+.indications {
+  overflow: visible;
+}
+
+.indications__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(320px, .6fr);
+  gap: 48px;
+  align-items: start;
+
+  @media (max-width: $tablets) {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 32px;
+  }
+}
+
+.indications__header {
+  max-width: 760px;
+  margin-bottom: $space-7;
+}
+
+.indications__list {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.indications__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 16px 18px;
+  border: 1.5px solid var(--border);
+  border-radius: 16px;
+  background: var(--white);
+  font-size: 16px;
+  line-height: 1.45;
+  color: var(--text);
+  transition: border-color .25s ease;
+
+  &:hover {
+    border-color: var(--brand-mint);
+  }
+
+  @media (max-width: $phones) {
+    gap: 12px;
+    padding: 14px 16px;
+    font-size: 15px;
+  }
+}
+
+.indications__check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--secondary-soft);
+  color: var(--secondary-color);
+  font-size: 11px;
+}
+
+.indications__cta {
+  position: sticky;
+  top: calc(var(--header-h) + #{$space-6});
+  overflow: hidden;
+  align-self: start;
+  padding: 32px;
+  border-radius: $radius-lg;
+  background:
+    radial-gradient(circle at 100% 0%, rgba(233, 167, 196, .2) 0%, transparent 46%),
+    var(--primary-bg);
+  box-shadow: $shadow-lg;
+  color: var(--white);
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -90px;
+    right: -70px;
+    width: 220px;
+    height: 220px;
+    border: 1px solid rgba(255, 255, 255, .08);
+    border-radius: 50%;
+  }
+
+  @media (max-width: $tablets) {
+    position: static;
+    max-width: 620px;
+  }
+
+  @media (max-width: $phones) {
+    padding: 24px;
+    border-radius: $radius;
+  }
+}
+
+.indications__cta-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  margin-bottom: 22px;
+  border: 1px solid rgba(255, 255, 255, .14);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, .08);
+  color: var(--brand-mint);
+  font-size: 24px;
+}
+
+.indications__cta-title {
+  position: relative;
+  font-size: 28px;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  color: var(--white);
+}
+
+.indications__cta-text {
+  position: relative;
+  margin-top: 12px;
+  font-size: 15px;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, .78);
+}
+
+.indications__cta .dart-btn {
+  position: relative;
+  margin-top: 24px;
+}

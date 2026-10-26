@@ -1,0 +1,44 @@
+<section class="section indications" id="indications" aria-labelledby="indications-title">
+  <div class="dart-container">
+
+    <div class="indications__layout">
+      <div class="indications__content">
+        <div class="section__header indications__header reveal">
+          <span class="section__eyebrow">{{indications.eyebrow}}</span>
+          <h2 id="indications-title">{{indications.title}}</h2>
+        </div>
+
+        <ul class="indications__list">
+          {{#each indications.items}}
+          <li class="indications__item reveal">
+            <span class="indications__check">
+              <i class="fa-solid fa-check" aria-hidden="true"></i>
+            </span>
+            <span>{{this}}</span>
+          </li>
+          {{/each}}
+        </ul>
+      </div>
+
+      <aside class="indications__cta reveal" aria-labelledby="indications-cta-title">
+        <span class="indications__cta-icon">
+          <i class="fa-solid fa-stethoscope" aria-hidden="true"></i>
+        </span>
+        <h3 class="indications__cta-title" id="indications-cta-title">{{indications.cta.title}}</h3>
+        <p class="indications__cta-text">{{indications.cta.text}}</p>
+        <button
+          type="button"
+          class="dart-btn dart-btn-primary dart-btn-block"
+          data-modal-open
+          data-modal-message="{{indications.cta.message}}"
+          aria-haspopup="dialog"
+          aria-controls="booking-modal"
+        >
+          {{indications.cta.label}}
+          <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+        </button>
+      </aside>
+    </div>
+
+  </div>
+</section>
