@@ -1,0 +1,2558 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Коммерческое предложение — поэтапное обновление сайта La Femme</title>
+  <meta name="description" content="Коммерческое предложение DART Agency для клиники La Femme: поэтапное обновление сайта в рамках техподдержки или единым проектом разработки.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&family=Roboto+Condensed:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --red: #ff000f;
+      --red-dark: #d4000c;
+      --red-soft: #fff2f3;
+      --ink: #131313;
+      --text: #2f2f2f;
+      --muted: #9d9fa0;
+      --line: #ececef;
+      --surface: #f7f7fa;
+      --white: #ffffff;
+      --radius: 20px;
+      --radius-sm: 12px;
+      --shadow: 0 24px 60px rgba(19, 19, 19, .10);
+      --font-body: "Open Sans", "Segoe UI", Arial, sans-serif;
+      --font-head: "Roboto Condensed", "Arial Narrow", Arial, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 96px;
+    }
+
+    body {
+      margin: 0;
+      background: var(--surface);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 15px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    img,
+    svg {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    textarea {
+      font: inherit;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    .container {
+      width: min(1200px, calc(100% - 48px));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(247, 247, 250, .88);
+      border-bottom: 1px solid rgba(19, 19, 19, .07);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    .topbar__inner {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      min-height: 78px;
+    }
+
+    .logo {
+      flex: 0 0 auto;
+      width: 116px;
+      transition: opacity .2s ease;
+    }
+
+    .logo:hover {
+      opacity: .78;
+    }
+
+    .logo img {
+      width: 100%;
+      height: auto;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      margin-left: auto;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .nav a {
+      color: rgba(19, 19, 19, .7);
+      transition: color .2s ease;
+      white-space: nowrap;
+    }
+
+    .nav a:hover {
+      color: var(--red);
+    }
+
+    .topbar__actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .phone {
+      color: var(--ink);
+      font-size: 14px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .phone:hover {
+      color: var(--red);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 15px 26px;
+      border: 1px solid transparent;
+      border-radius: var(--radius-sm);
+      background: transparent;
+      color: var(--ink);
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 1;
+      text-align: center;
+      cursor: pointer;
+      transition: background .2s ease, border-color .2s ease, color .2s ease, transform .2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .btn--dark {
+      background: var(--ink);
+      color: var(--white);
+    }
+
+    .btn--dark:hover {
+      background: var(--red);
+      color: var(--white);
+    }
+
+    .btn--red {
+      background: var(--red);
+      color: var(--white);
+    }
+
+    .btn--red:hover {
+      background: var(--red-dark);
+    }
+
+    .btn--outline {
+      border-color: rgba(19, 19, 19, .24);
+      background: transparent;
+      color: var(--ink);
+    }
+
+    .btn--outline:hover {
+      border-color: var(--ink);
+      background: var(--white);
+    }
+
+    .btn--sm {
+      padding: 12px 18px;
+      font-size: 13px;
+    }
+
+    .btn svg {
+      flex: 0 0 auto;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 92px 0 74px;
+      background: var(--surface);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 680px;
+      height: 680px;
+      top: -300px;
+      right: -160px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255, 0, 15, .1), rgba(255, 0, 15, 0) 68%);
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 340px;
+      height: 340px;
+      right: 28%;
+      bottom: -290px;
+      border-radius: 50%;
+      border: 48px solid rgba(255, 0, 15, .035);
+      pointer-events: none;
+    }
+
+    .hero__grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(380px, .92fr);
+      gap: 64px;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin-bottom: 28px;
+      padding: 9px 16px;
+      border: 1px solid rgba(19, 19, 19, .08);
+      border-radius: 999px;
+      background: var(--white);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, .04);
+      color: var(--ink);
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .badge__dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--red);
+      box-shadow: 0 0 0 4px rgba(255, 0, 15, .1);
+    }
+
+    .hero h1 {
+      max-width: 760px;
+      margin-bottom: 24px;
+      color: var(--ink);
+      font-family: var(--font-head);
+      font-size: clamp(46px, 5.1vw, 68px);
+      font-weight: 800;
+      line-height: 1.01;
+      letter-spacing: -.032em;
+    }
+
+    .hero h1 span {
+      color: var(--red);
+    }
+
+    .hero__sub {
+      max-width: 660px;
+      margin-bottom: 30px;
+      color: #797b7d;
+      font-size: 18px;
+      line-height: 1.62;
+    }
+
+    .hero__actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 42px;
+    }
+
+    .hero__stats {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
+    }
+
+    .hero__stats > div {
+      min-width: 0;
+      padding-right: 18px;
+      border-right: 1px solid var(--line);
+    }
+
+    .hero__stats > div:last-child {
+      padding-right: 0;
+      border-right: 0;
+    }
+
+    .hero__stats b {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--ink);
+      font-family: var(--font-head);
+      font-size: 31px;
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -.02em;
+      white-space: nowrap;
+    }
+
+    .hero__stats span {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.35;
+    }
+
+    .hero__visual {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 470px;
+    }
+
+    .hero-card {
+      position: relative;
+      width: 100%;
+      max-width: 408px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: var(--white);
+      box-shadow: 0 32px 70px rgba(19, 19, 19, .14);
+      transform: rotate(-1.3deg);
+    }
+
+    .hero-card__top {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--line);
+      background: #fbfbfc;
+      color: var(--muted);
+      font-size: 11.5px;
+      font-weight: 600;
+    }
+
+    .hero-card__dots {
+      display: flex;
+      gap: 5px;
+    }
+
+    .hero-card__dots i {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #e1e1e5;
+    }
+
+    .hero-card__dots i:first-child {
+      background: var(--red);
+    }
+
+    .hero-card__url {
+      margin-left: auto;
+    }
+
+    .hero-card__body {
+      position: relative;
+      padding: 28px;
+    }
+
+    .hero-card__body::after {
+      content: "";
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      top: -110px;
+      right: -90px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255, 0, 15, .08), transparent 68%);
+      pointer-events: none;
+    }
+
+    .hero-card__label {
+      position: relative;
+      z-index: 1;
+      display: block;
+      margin-bottom: 8px;
+      color: var(--red);
+      font-size: 10.5px;
+      font-weight: 800;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+
+    .hero-card h2 {
+      position: relative;
+      z-index: 1;
+      margin-bottom: 20px;
+      color: var(--ink);
+      font-family: var(--font-head);
+      font-size: 31px;
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -.02em;
+    }
+
+    .hero-card__list {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      margin: 0;
+      padding: 0;
+      border-top: 1px solid var(--line);
+      list-style: none;
+    }
+
+    .hero-card__list li {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 11px 0;
+      border-bottom: 1px solid var(--line);
+      font-size: 13px;
+      line-height: 1.4;
+    }
+
+    .hero-card__list span {
+      color: var(--muted);
+    }
+
+    .hero-card__list b {
+      color: var(--ink);
+      font-weight: 700;
+      text-align: right;
+    }
+
+    .hero-card__foot {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-top: 20px;
+      padding: 14px 16px;
+      border-radius: 14px;
+      background: var(--ink);
+      color: var(--white);
+    }
+
+    .hero-card__foot span {
+      color: rgba(255, 255, 255, .58);
+      font-size: 11px;
+    }
+
+    .hero-card__foot b {
+      font-family: var(--font-head);
+      font-size: 23px;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    .hero-chip {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 11px 16px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--white);
+      box-shadow: 0 14px 30px rgba(19, 19, 19, .1);
+      font-size: 11px;
+      line-height: 1.3;
+    }
+
+    .hero-chip--a {
+      top: 66px;
+      left: 0;
+      transform: rotate(-2deg);
+    }
+
+    .hero-chip--b {
+      right: 0;
+      bottom: 52px;
+      transform: rotate(2deg);
+    }
+
+    .hero-chip__dot {
+      width: 8px;
+      height: 8px;
+      flex: 0 0 auto;
+      border-radius: 50%;
+      background: #1fb26a;
+      box-shadow: 0 0 0 4px rgba(31, 178, 106, .11);
+    }
+
+    .hero-chip__check {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px;
+      height: 22px;
+      flex: 0 0 auto;
+      border-radius: 50%;
+      background: var(--red);
+      color: var(--white);
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .hero-chip b {
+      display: block;
+      color: var(--ink);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .hero-chip small {
+      display: block;
+      color: var(--muted);
+      font-size: 10.5px;
+    }
+
+    .marquee {
+      overflow: hidden;
+      padding: 18px 0;
+      background: var(--ink);
+      color: var(--white);
+      white-space: nowrap;
+    }
+
+    .marquee__track {
+      display: inline-flex;
+      align-items: center;
+      gap: 30px;
+      min-width: max-content;
+      animation: marquee 38s linear infinite;
+    }
+
+    .marquee span {
+      font-family: var(--font-head);
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: .025em;
+      text-transform: uppercase;
+    }
+
+    .marquee i {
+      color: var(--red);
+      font-size: 15px;
+      font-style: normal;
+    }
+
+    @keyframes marquee {
+      to { transform: translateX(-50%); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .marquee__track {
+        animation: none;
+      }
+    }
+
+    .section {
+      padding: 78px 0;
+      background: var(--white);
+    }
+
+    .section--soft {
+      background: var(--surface);
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(280px, .52fr);
+      gap: 48px;
+      align-items: end;
+      margin-bottom: 38px;
+    }
+
+    .section-head .kicker {
+      grid-column: 1 / -1;
+    }
+
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin-bottom: 14px;
+      color: var(--red);
+      font-size: 11.5px;
+      font-weight: 800;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    .kicker::before {
+      content: "";
+      width: 23px;
+      height: 2px;
+      border-radius: 2px;
+      background: var(--red);
+    }
+
+    .section h2 {
+      max-width: 820px;
+      margin-bottom: 0;
+      color: var(--ink);
+      font-family: var(--font-head);
+      font-size: clamp(34px, 3.7vw, 46px);
+      font-weight: 800;
+      line-height: 1.03;
+      letter-spacing: -.024em;
+    }
+
+    .section-desc {
+      max-width: 500px;
+      margin-bottom: 2px;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.65;
+    }
+
+    .section-intro {
+      max-width: 860px;
+      margin-bottom: 28px;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.65;
+    }
+
+    .section h3 {
+      margin: 38px 0 15px;
+      color: var(--ink);
+      font-family: var(--font-head);
+      font-size: 27px;
+      font-weight: 700;
+      line-height: 1.13;
+      letter-spacing: -.015em;
+    }
+
+    .cards-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .option {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      padding: 30px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--white);
+      transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+    }
+
+    .option:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+    }
+
+    .option--primary {
+      border-color: rgba(255, 0, 15, .28);
+      box-shadow: 0 18px 44px rgba(255, 0, 15, .055);
+    }
+
+    .option-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    .tag {
+      display: inline-flex;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: var(--surface);
+      color: var(--red);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .option--primary .tag {
+      background: var(--red);
+      color: var(--white);
+    }
+
+    .price {
+      color: var(--ink);
+      font-family: var(--font-head);
+      font-size: 25px;
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -.02em;
+      white-space: nowrap;
+    }
+
+    .option h3 {
+      margin: 0 0 10px;
+      font-size: 28px;
+    }
+
+    .option p {
+      margin-bottom: 20px;
+      color: var(--muted);
+      font-size: 14.5px;
+      line-height: 1.6;
+    }
+
+    .option ul,
+    .list {
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .option li,
+    .list li {
+      position: relative;
+      padding-left: 25px;
+      color: var(--text);
+      font-size: 13.5px;
+      line-height: 1.55;
+    }
+
+    .option li::before,
+    .list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 5px;
+      width: 13px;
+      height: 7px;
+      border-left: 2px solid var(--red);
+      border-bottom: 2px solid var(--red);
+      transform: rotate(-45deg);
+    }
+
+    .option-foot {
+      margin-top: auto;
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
+      color: var(--ink);
+      font-size: 12.5px;
+      font-weight: 700;
+      line-height: 1.5;
+    }
+
+    .callout {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      margin-top: 24px;
+      padding: 22px 24px;
+      border: 1px solid var(--line);
+      border-left: 4px solid var(--red);
+      border-radius: 0 16px 16px 0;
+      background: var(--surface);
+      color: #5d5f61;
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+    .callout strong {
+      color: var(--ink);
+      font-weight: 800;
+    }
+
+    .calc {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin: 26px 0 12px;
+    }
+
+    .calc div {
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: var(--white);
+    }
+
+    .calc span {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    .calc b {
+      color: var(--ink);
+      font-family: var(--font-head);
+      font-size: 34px;
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -.02em;
+    }
+
+    .calc .total {
+      border-color: var(--ink);
+      background: var(--ink);
+    }
+
+    .calc .total span {
+      color: rgba(255, 255, 255, .58);
+    }
+
+    .calc .total b {
+      color: var(--white);
+    }
+
+    .note {
+      margin: 13px 0 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    .table-wrap {
+      width: 100%;
+      margin-top: 16px;
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: var(--white);
+      -webkit-overflow-scrolling: touch;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13.5px;
+      line-height: 1.45;
+    }
+
+    th,
+    td {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: var(--surface);
+      color: #747678;
+      font-size: 10.5px;
+      font-weight: 800;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    tbody tr:last-child td {
+      border-bottom: 0;
+    }
+
+    tbody tr:hover td {
+      background: #fbfbfc;
+    }
+
+    .table-strong {
+      color: var(--ink);
+      font-weight: 700;
+    }
+
+    .highlight-row td {
+      background: var(--red-soft);
+    }
+
+    .highlight-row td:first-child {
+      box-shadow: inset 3px 0 0 var(--red);
+    }
+
+    .highlight-row:hover td {
+      background: #ffe9eb;
+    }
+
+    .recommended {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1.18fr .82fr;
+      gap: 28px;
+      margin-top: 24px;
+      padding: 32px;
+      overflow: hidden;
+      border-radius: 22px;
+      background: var(--ink);
+      color: var(--white);
+    }
+
+    .recommended::after {
+      content: "";
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      top: -190px;
+      right: -90px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255, 0, 15, .24), transparent 66%);
+      pointer-events: none;
+    }
+
+    .recommended > div {
+      position: relative;
+      z-index: 1;
+    }
+
+    .recommended h3 {
+      margin: 0 0 10px;
+      color: var(--white);
+      font-size: 30px;
+    }
+
+    .recommended p {
+      margin-bottom: 0;
+      color: rgba(255, 255, 255, .62);
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+    .recommended-price {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-left: 28px;
+      border-left: 1px solid rgba(255, 255, 255, .14);
+    }
+
+    .recommended-price span {
+      display: block;
+      margin-bottom: 6px;
+      color: rgba(255, 255, 255, .45);
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    .recommended-price b {
+      display: block;
+      color: var(--white);
+      font-family: var(--font-head);
+      font-size: 33px;
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -.025em;
+    }
+
+    .recommended-price small {
+      display: block;
+      margin-top: 7px;
+      color: rgba(255, 255, 255, .52);
+      font-size: 12px;
+    }
+
+    .payments {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 16px;
+    }
+
+    .payment {
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: var(--surface);
+    }
+
+    .payment b {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--red);
+      font-family: var(--font-head);
+      font-size: 35px;
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -.025em;
+    }
+
+    .payment span {
+      display: block;
+      color: #686a6c;
+      font-size: 12.5px;
+      line-height: 1.55;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .panel {
+      padding: 28px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--white);
+    }
+
+    .panel--exclude {
+      background: var(--surface);
+    }
+
+    .panel h3 {
+      margin: 0 0 16px;
+      font-size: 26px;
+    }
+
+    .panel--exclude .list li::before {
+      content: "—";
+      top: 0;
+      width: auto;
+      height: auto;
+      border: 0;
+      color: var(--muted);
+      font-weight: 700;
+      transform: none;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 22px;
+    }
+
+    .step {
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-top: 3px solid var(--red);
+      border-radius: 16px;
+      background: var(--white);
+    }
+
+    .step b {
+      display: block;
+      margin-bottom: 14px;
+      color: var(--red);
+      font-family: var(--font-head);
+      font-size: 39px;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    .step span {
+      display: block;
+      color: var(--ink);
+      font-family: var(--font-head);
+      font-size: 23px;
+      font-weight: 700;
+      line-height: 1.1;
+    }
+
+    .step small {
+      display: block;
+      margin-top: 7px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    .cta {
+      position: relative;
+      overflow: hidden;
+      padding: 82px 0;
+      background: var(--ink);
+      color: var(--white);
+    }
+
+    .cta::before,
+    .cta::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .cta::before {
+      width: 420px;
+      height: 420px;
+      top: -270px;
+      right: 8%;
+      background: radial-gradient(circle, rgba(255, 0, 15, .28), transparent 68%);
+    }
+
+    .cta::after {
+      width: 230px;
+      height: 230px;
+      bottom: -170px;
+      left: 6%;
+      border: 34px solid rgba(255, 0, 15, .09);
+    }
+
+    .cta__inner {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(300px, .85fr);
+      gap: 50px;
+      align-items: center;
+    }
+
+    .cta h2 {
+      max-width: 720px;
+      margin-bottom: 18px;
+      color: var(--white);
+      font-family: var(--font-head);
+      font-size: clamp(40px, 4.5vw, 58px);
+      font-weight: 800;
+      line-height: 1.01;
+      letter-spacing: -.025em;
+    }
+
+    .cta p {
+      max-width: 610px;
+      margin-bottom: 28px;
+      color: rgba(255, 255, 255, .62);
+      font-size: 16px;
+      line-height: 1.65;
+    }
+
+    .cta__actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .cta__actions .btn--outline {
+      border-color: rgba(255, 255, 255, .24);
+      color: var(--white);
+    }
+
+    .cta__actions .btn--outline:hover {
+      border-color: var(--white);
+      background: rgba(255, 255, 255, .06);
+    }
+
+    .cta__card {
+      padding: 28px;
+      border: 1px solid rgba(255, 255, 255, .12);
+      border-radius: 20px;
+      background: rgba(255, 255, 255, .045);
+    }
+
+    .cta__card span {
+      display: block;
+      margin-bottom: 10px;
+      color: var(--red);
+      font-size: 10.5px;
+      font-weight: 800;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+
+    .cta__card b {
+      display: block;
+      margin-bottom: 12px;
+      color: var(--white);
+      font-family: var(--font-head);
+      font-size: 26px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+
+    .cta__card p {
+      margin-bottom: 0;
+      color: rgba(255, 255, 255, .55);
+      font-size: 13px;
+    }
+
+    .footer {
+      padding: 48px 0 28px;
+      border-top: 1px solid rgba(255, 255, 255, .08);
+      background: #0c0c0d;
+      color: rgba(255, 255, 255, .5);
+    }
+
+    .footer__grid {
+      display: grid;
+      grid-template-columns: 1.3fr .8fr .9fr;
+      gap: 36px;
+      margin-bottom: 32px;
+    }
+
+    .footer__logo {
+      display: block;
+      width: 148px;
+      margin-bottom: 16px;
+    }
+
+    .footer__logo img {
+      width: 100%;
+      height: auto;
+    }
+
+    .footer p {
+      max-width: 380px;
+      margin-bottom: 10px;
+      font-size: 12px;
+      line-height: 1.65;
+    }
+
+    .footer a {
+      color: rgba(255, 255, 255, .72);
+      border-bottom: 1px solid rgba(255, 255, 255, .16);
+      transition: color .2s ease, border-color .2s ease;
+    }
+
+    .footer a:hover {
+      color: var(--white);
+      border-bottom-color: var(--red);
+    }
+
+    .footer__title {
+      margin-bottom: 12px;
+      color: var(--white);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .11em;
+      text-transform: uppercase;
+    }
+
+    .footer__list {
+      display: grid;
+      gap: 7px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      font-size: 12px;
+    }
+
+    .footer__bottom {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, .08);
+      font-size: 11px;
+      line-height: 1.5;
+    }
+
+    .print-brand {
+      display: none;
+    }
+
+    @media (max-width: 1080px) {
+      .nav {
+        display: none;
+      }
+
+      .topbar__inner {
+        justify-content: space-between;
+      }
+
+      .topbar__actions {
+        margin-left: auto;
+      }
+
+      .hero__grid {
+        grid-template-columns: minmax(0, 1fr) minmax(340px, .8fr);
+        gap: 44px;
+      }
+
+      .hero__stats b {
+        font-size: 28px;
+      }
+
+      .hero-chip--a {
+        left: -8px;
+      }
+
+      .hero-chip--b {
+        right: -8px;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        padding: 62px 0 58px;
+      }
+
+      .hero__grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 52px;
+      }
+
+      .hero__visual {
+        min-height: 0;
+        justify-content: flex-start;
+      }
+
+      .hero-card {
+        max-width: 440px;
+      }
+
+      .hero-chip--a {
+        left: auto;
+        right: 26px;
+        top: 28px;
+      }
+
+      .hero-chip--b {
+        right: auto;
+        bottom: -18px;
+        left: 26px;
+      }
+
+      .section-head {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 14px;
+        margin-bottom: 32px;
+      }
+
+      .section-desc {
+        max-width: 680px;
+      }
+
+      .cards-2,
+      .two-col,
+      .recommended {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .recommended-price {
+        padding: 22px 0 0;
+        border-top: 1px solid rgba(255, 255, 255, .14);
+        border-left: 0;
+      }
+
+      .steps {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .cta__inner {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 32px;
+      }
+
+      .cta__card {
+        max-width: 520px;
+      }
+
+      .footer__grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .container {
+        width: min(100% - 32px, 1200px);
+      }
+
+      .topbar__inner {
+        min-height: 68px;
+        gap: 16px;
+      }
+
+      .logo {
+        width: 98px;
+      }
+
+      .phone {
+        display: none;
+      }
+
+      .hero {
+        padding: 48px 0 52px;
+      }
+
+      .badge {
+        margin-bottom: 22px;
+        padding: 8px 13px;
+        font-size: 11.5px;
+      }
+
+      .hero h1 {
+        font-size: clamp(39px, 11vw, 54px);
+      }
+
+      .hero__sub {
+        font-size: 16px;
+      }
+
+      .hero__actions {
+        margin-bottom: 32px;
+      }
+
+      .hero__actions .btn {
+        width: 100%;
+      }
+
+      .hero__stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px 0;
+      }
+
+      .hero__stats > div {
+        padding-right: 14px;
+      }
+
+      .hero__stats > div:nth-child(2) {
+        border-right: 0;
+      }
+
+      .hero__stats > div:nth-child(3),
+      .hero__stats > div:nth-child(4) {
+        padding-top: 16px;
+        border-top: 1px solid var(--line);
+      }
+
+      .hero-card {
+        transform: none;
+      }
+
+      .hero-card__body {
+        padding: 22px;
+      }
+
+      .hero-chip {
+        display: none;
+      }
+
+      .marquee {
+        padding: 14px 0;
+      }
+
+      .marquee span {
+        font-size: 15px;
+      }
+
+      .section {
+        padding: 56px 0;
+      }
+
+      .section h2 {
+        font-size: clamp(31px, 8.8vw, 40px);
+      }
+
+      .section h3 {
+        margin-top: 32px;
+        font-size: 24px;
+      }
+
+      .section-intro {
+        font-size: 14px;
+      }
+
+      .option {
+        padding: 24px;
+      }
+
+      .option-top {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .calc {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .payments,
+      .steps {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .table-wrap {
+        border-radius: 14px;
+      }
+
+      th,
+      td {
+        padding: 11px 12px;
+      }
+
+      .recommended {
+        padding: 26px;
+      }
+
+      .recommended-price b {
+        font-size: 29px;
+      }
+
+      .cta {
+        padding: 58px 0;
+      }
+
+      .cta__actions .btn {
+        width: 100%;
+      }
+
+      .footer__grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 26px;
+      }
+
+      .footer__bottom {
+        flex-direction: column;
+        gap: 8px;
+      }
+    }
+
+    @media print {
+      @page {
+        size: A4;
+        margin: 10mm;
+      }
+
+      * {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      html,
+      body {
+        background: #ffffff !important;
+        color: #131313;
+      }
+
+      .container {
+        width: 100%;
+        max-width: none;
+      }
+
+      .topbar,
+      .marquee,
+      .hero__visual,
+      .hero__actions,
+      .hero-chip,
+      .no-print {
+        display: none !important;
+      }
+
+      .print-brand {
+        display: block;
+        width: 96px;
+        margin-bottom: 12px;
+      }
+
+      .hero {
+        padding: 0 0 16px;
+        background: #ffffff !important;
+      }
+
+      .hero::before,
+      .hero::after {
+        display: none;
+      }
+
+      .hero__grid {
+        display: block;
+      }
+
+      .badge {
+        margin-bottom: 10px;
+        padding: 0;
+        border: 0;
+        box-shadow: none;
+        font-size: 8pt;
+      }
+
+      .hero h1 {
+        margin-bottom: 10px;
+        font-size: 27pt;
+      }
+
+      .hero__sub {
+        max-width: none;
+        margin-bottom: 14px;
+        font-size: 10pt;
+        line-height: 1.45;
+      }
+
+      .hero__stats {
+        gap: 0;
+        padding-top: 10px;
+      }
+
+      .hero__stats b {
+        font-size: 18pt;
+      }
+
+      .hero__stats span {
+        font-size: 7.5pt;
+      }
+
+      .section,
+      .section--soft {
+        padding: 15px 0;
+        background: #ffffff !important;
+      }
+
+      .section h2,
+      .cta h2 {
+        font-size: 19pt;
+      }
+
+      .section h3 {
+        margin: 13px 0 7px;
+        font-size: 13pt;
+      }
+
+      .section-head {
+        display: block;
+        margin-bottom: 13px;
+      }
+
+      .section-desc,
+      .section-intro {
+        max-width: none;
+        margin-bottom: 10px;
+        font-size: 8.5pt;
+        line-height: 1.45;
+      }
+
+      .kicker {
+        margin-bottom: 5px;
+        font-size: 7pt;
+      }
+
+      .cards-2,
+      .two-col,
+      .recommended {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 9px;
+      }
+
+      .option,
+      .panel,
+      .recommended,
+      .payment,
+      .step,
+      .callout,
+      .table-wrap,
+      .calc > div {
+        break-inside: avoid;
+        box-shadow: none !important;
+      }
+
+      .option {
+        padding: 14px;
+      }
+
+      .option h3 {
+        font-size: 14pt;
+      }
+
+      .option p,
+      .option li,
+      .list li,
+      .callout {
+        font-size: 8pt;
+      }
+
+      .price {
+        font-size: 14pt;
+      }
+
+      .calc {
+        gap: 5px;
+        margin: 9px 0 5px;
+      }
+
+      .calc div {
+        padding: 8px;
+      }
+
+      .calc b {
+        font-size: 16pt;
+      }
+
+      .calc span {
+        font-size: 6.5pt;
+      }
+
+      table {
+        font-size: 7.3pt;
+        line-height: 1.3;
+      }
+
+      th,
+      td {
+        padding: 4px 5px;
+      }
+
+      th {
+        font-size: 6pt;
+      }
+
+      .table-wrap {
+        margin-top: 7px;
+        overflow: visible;
+        border-radius: 8px;
+      }
+
+      .recommended {
+        margin-top: 9px;
+        padding: 13px;
+      }
+
+      .recommended h3 {
+        font-size: 14pt;
+      }
+
+      .recommended p,
+      .recommended-price small {
+        font-size: 7.5pt;
+      }
+
+      .recommended-price b {
+        font-size: 16pt;
+      }
+
+      .payments,
+      .steps {
+        gap: 6px;
+        margin-top: 8px;
+      }
+
+      .payment,
+      .step {
+        padding: 9px;
+      }
+
+      .payment b,
+      .step b {
+        font-size: 18pt;
+      }
+
+      .step span {
+        font-size: 11pt;
+      }
+
+      .step small,
+      .payment span,
+      .note {
+        font-size: 6.5pt;
+      }
+
+      .section h3,
+      .section h2,
+      .hero h1 {
+        break-after: avoid;
+      }
+
+      tr {
+        break-inside: avoid;
+      }
+
+      .cta {
+        padding: 14px 12px;
+        border-top: 2px solid #ff000f;
+        background: #ffffff !important;
+        color: #131313;
+      }
+
+      .cta::before,
+      .cta::after,
+      .cta__card {
+        display: none;
+      }
+
+      .cta__inner {
+        display: block;
+      }
+
+      .cta h2 {
+        color: #131313;
+      }
+
+      .cta p {
+        max-width: none;
+        margin-bottom: 10px;
+        color: #555;
+        font-size: 8.5pt;
+      }
+
+      .cta__actions {
+        display: none;
+      }
+
+      .footer {
+        padding: 10px 0 0;
+        border-top: 1px solid #dddddf;
+        background: #ffffff !important;
+        color: #666;
+      }
+
+      .footer__grid {
+        display: none;
+      }
+
+      .footer__bottom {
+        padding-top: 8px;
+        border-top: 0;
+        color: #666;
+        font-size: 6.5pt;
+      }
+
+      .footer a {
+        color: #131313;
+        border-bottom: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <a class="logo" href="https://dart.agency/" aria-label="DART Agency">
+        <img src="https://dart.agency/assets/templates/dart/img/logo.svg" alt="DART Agency" width="371" height="185">
+      </a>
+
+      <nav class="nav" aria-label="Навигация по предложению">
+        <a href="#short">Коротко</a>
+        <a href="#support">Техподдержка</a>
+        <a href="#development">Разработка</a>
+        <a href="#compare">Сравнение</a>
+      </nav>
+
+      <div class="topbar__actions">
+        <a class="phone" href="tel:+79991158355">+7 999 115-83-55</a>
+        <button class="btn btn--dark btn--sm" type="button" onclick="window.print()">Скачать PDF</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero__grid">
+        <div class="hero__content">
+          <a class="print-brand" href="https://dart.agency/" aria-label="DART Agency">
+            <img src="https://dart.agency/assets/templates/dart/img/logo.svg" alt="DART Agency" width="371" height="185">
+          </a>
+
+          <div class="badge">
+            <span class="badge__dot"></span>
+            Коммерческое предложение · La Femme · 26.10.2026
+          </div>
+
+          <h1>Поэтапное обновление сайта клиники <span>La Femme</span></h1>
+
+          <p class="hero__sub">
+            Два формата работы: постепенное обновление страниц в рамках технической
+            поддержки или единый проект по разработке сайта. Ниже — ориентировочные
+            сроки и стоимость на базе действующих тарифов DART Agency.
+          </p>
+
+          <div class="hero__actions">
+            <a class="btn btn--dark" href="mailto:info@dart.agency?subject=Обновление%20сайта%20La%20Femme">
+              Обсудить проект
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <a class="btn btn--outline" href="#short">Перейти к расчёту</a>
+          </div>
+
+          <div class="hero__stats">
+            <div>
+              <b>8 ч</b>
+              <span>программист на страницу</span>
+            </div>
+            <div>
+              <b>16 ч</b>
+              <span>с версткой и проверкой</span>
+            </div>
+            <div>
+              <b>25 000 ₽</b>
+              <span>поддержка в месяц</span>
+            </div>
+            <div>
+              <b>199 999 ₽</b>
+              <span>проект разработки</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero__visual">
+          <div class="hero-card" aria-hidden="true">
+            <div class="hero-card__top">
+              <span class="hero-card__dots"><i></i><i></i><i></i></span>
+              <span class="hero-card__url">Предложение для La Femme</span>
+            </div>
+            <div class="hero-card__body">
+              <span class="hero-card__label">Что внутри</span>
+              <h2>Обновление сайта клиники</h2>
+              <ul class="hero-card__list">
+                <li><span>Объём для расчёта</span><b>10 страниц</b></li>
+                <li><span>Формат</span><b>Поддержка или проект</b></li>
+                <li><span>Горизонт</span><b>8–10 мес / 30–45 дней</b></li>
+                <li><span>Пилотная страница</span><b>8 ч</b></li>
+              </ul>
+              <div class="hero-card__foot">
+                <span>Рекомендуемый старт</span>
+                <b>25 000 ₽</b>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-chip hero-chip--a">
+            <span class="hero-chip__dot"></span>
+            <div><b>10 страниц</b><small>в расчёте</small></div>
+          </div>
+          <div class="hero-chip hero-chip--b">
+            <span class="hero-chip__check">✓</span>
+            <div><b>16 часов</b><small>на страницу</small></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span>Техническая поддержка</span><i>✦</i>
+        <span>Разработка сайтов</span><i>✦</i>
+        <span>Дизайн-система</span><i>✦</i>
+        <span>Адаптив</span><i>✦</i>
+        <span>SEO-основа</span><i>✦</i>
+        <span>Поддержка</span><i>✦</i>
+        <span>Разработка</span><i>✦</i>
+        <span>La Femme</span><i>✦</i>
+        <span>Техническая поддержка</span><i>✦</i>
+        <span>Разработка сайтов</span><i>✦</i>
+        <span>Дизайн-система</span><i>✦</i>
+        <span>Адаптив</span><i>✦</i>
+        <span>SEO-основа</span><i>✦</i>
+        <span>Поддержка</span><i>✦</i>
+        <span>Разработка</span><i>✦</i>
+        <span>La Femme</span><i>✦</i>
+      </div>
+    </div>
+
+    <section class="section" id="short">
+      <div class="container">
+        <div class="section-head">
+          <div class="kicker">Коротко</div>
+          <h2>Два пути к обновлению сайта</h2>
+          <p class="section-desc">
+            Оба варианта решают одну задачу — привести страницы к единому современному
+            виду. Разница в скорости, размере первого платежа и гибкости.
+          </p>
+        </div>
+
+        <p class="section-intro">
+          Для наглядности в расчёте принято 10 страниц: главная и 9 внутренних.
+          Если страниц больше или меньше, срок и стоимость меняются пропорционально.
+        </p>
+
+        <div class="cards-2">
+          <article class="option option--primary">
+            <div class="option-top">
+              <span class="tag">Вариант 1</span>
+              <span class="price">от 25 000 ₽/мес</span>
+            </div>
+            <h3>Поэтапно в рамках техподдержки</h3>
+            <p>
+              Каждый месяц обновляем одну страницу и одновременно закрываем текущие
+              задачи: мониторинг, бэкапы, обновления и срочные правки.
+            </p>
+            <ul>
+              <li>Пилотная страница лабиопластики уже оценена: 8 ч программиста</li>
+              <li>В тарифе «Бизнес Плюс» — 20 ч работы в месяц</li>
+              <li>Можно менять приоритет страниц по ходу проекта</li>
+              <li>Поддержка и развитие идут параллельно</li>
+            </ul>
+            <div class="option-foot">10 страниц: 8–10 месяцев · 200 000–250 000 ₽</div>
+          </article>
+
+          <article class="option">
+            <div class="option-top">
+              <span class="tag">Вариант 2</span>
+              <span class="price">от 199 999 ₽</span>
+            </div>
+            <h3>Обновление как отдельный проект</h3>
+            <p>
+              Фиксируем объём, дизайн-систему, шаблоны страниц и запуск. Подходит,
+              если нужен предсказуемый результат к определённой дате.
+            </p>
+            <ul>
+              <li>Аудит, прототип и структура сайта</li>
+              <li>Единая дизайн-система и адаптивные шаблоны</li>
+              <li>Перенос контента и базовая SEO-настройка</li>
+              <li>Запуск, аналитика и обучение</li>
+            </ul>
+            <div class="option-foot">Корпоративный сайт: 30–45 рабочих дней · 199 999–249 999 ₽</div>
+          </article>
+        </div>
+
+        <div class="callout">
+          <div>
+            <strong>Рекомендация.</strong> Если бюджет удобнее распределить по месяцам
+            и сайт может обновляться постепенно — начинаем с техподдержки. Если нужен
+            быстрый комплексный результат и единый стандарт для всех страниц — выгоднее
+            отдельный проект разработки.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--soft" id="support">
+      <div class="container">
+        <div class="section-head">
+          <div class="kicker">Вариант 1</div>
+          <h2>Техническая поддержка: обновляем сайт постепенно</h2>
+          <p class="section-desc">
+            За основу берём фактическую оценку страницы лабиопластики и добавляем
+            часы на интеграцию шаблона и проверку.
+          </p>
+        </div>
+
+        <p class="section-intro">
+          Страница лабиопластики уже оценена в 8 часов работы программиста без натяжки
+          верстки. Для планирования добавляем часы на натяжку шаблона и QA.
+        </p>
+
+        <div class="calc">
+          <div>
+            <span>Программирование</span>
+            <b>8 ч</b>
+          </div>
+          <div>
+            <span>Натяжка верстки</span>
+            <b>6 ч</b>
+          </div>
+          <div>
+            <span>QA и правки</span>
+            <b>2 ч</b>
+          </div>
+          <div class="total">
+            <span>Итого на страницу</span>
+            <b>16 ч</b>
+          </div>
+        </div>
+        <p class="note">
+          Натяжка верстки и QA — ориентировочные оценки. Для страниц с уникальными
+          блоками или сложной анимацией добавляется 2–6 часов. Дизайн с нуля в расчёт
+          не входит.
+        </p>
+
+        <h3>Тарифы технической поддержки</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Тариф</th>
+                <th>Часы программиста</th>
+                <th>Стоимость</th>
+                <th>Справочно: стоимость часа</th>
+                <th>Когда подходит</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="table-strong">Старт</td>
+                <td>2 ч/мес</td>
+                <td>5 000 ₽/мес</td>
+                <td>≈ 2 500 ₽/ч</td>
+                <td>Только срочные мелкие правки</td>
+              </tr>
+              <tr>
+                <td class="table-strong">Для редко обновляемых сайтов</td>
+                <td>4 ч/мес</td>
+                <td>7 000 ₽/мес</td>
+                <td>≈ 1 750 ₽/ч</td>
+                <td>Медленное обновление без спешки</td>
+              </tr>
+              <tr>
+                <td class="table-strong">Бизнес</td>
+                <td>8 ч/мес</td>
+                <td>15 000 ₽/мес</td>
+                <td>≈ 1 875 ₽/ч</td>
+                <td>Одна страница в 2 месяца</td>
+              </tr>
+              <tr class="highlight-row">
+                <td class="table-strong">Бизнес Плюс</td>
+                <td>20 ч/мес</td>
+                <td>25 000 ₽/мес</td>
+                <td>≈ 1 250 ₽/ч</td>
+                <td>Одна страница в месяц + поддержка</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p class="note">
+          Во всех тарифах действуют мониторинг доступности, резервное копирование,
+          обновления, антивирусная проверка, отчётность и приоритетная связь.
+          Часы сверх лимита согласуются отдельно.
+        </p>
+
+        <h3>Расчёт по тарифу «Бизнес Плюс»</h3>
+        <p class="section-intro">
+          20 часов в месяц позволяют обновлять одну страницу (16 ч) и оставлять 4 часа
+          на срочные задачи, консультации и небольшие правки. Ниже — ориентиры для
+          разного количества страниц.
+        </p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Объём сайта</th>
+                <th>Трудозатраты</th>
+                <th>Срок при 20 ч/мес</th>
+                <th>Стоимость подписки</th>
+                <th>Стоимость на страницу</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="table-strong">5 страниц</td>
+                <td>80 ч</td>
+                <td>4 месяца</td>
+                <td>100 000 ₽</td>
+                <td>≈ 20 000 ₽</td>
+              </tr>
+              <tr>
+                <td class="table-strong">8 страниц</td>
+                <td>128 ч</td>
+                <td>7 месяцев</td>
+                <td>175 000 ₽</td>
+                <td>≈ 21 900 ₽</td>
+              </tr>
+              <tr class="highlight-row">
+                <td class="table-strong">10 страниц</td>
+                <td>160 ч</td>
+                <td>8–10 месяцев</td>
+                <td>200 000–250 000 ₽</td>
+                <td>≈ 20 000–25 000 ₽</td>
+              </tr>
+              <tr>
+                <td class="table-strong">15 страниц</td>
+                <td>240 ч</td>
+                <td>12 месяцев</td>
+                <td>300 000 ₽</td>
+                <td>≈ 20 000 ₽</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p class="note">
+          Расчёт предполагает непрерывную подписку и использование большей части часов
+          на обновление. При запасе на срочные задачи срок увеличивается на 10–20%.
+          Количество страниц уточняется после аудита.
+        </p>
+
+        <div class="callout">
+          <div>
+            <strong>Почему «Бизнес Плюс», а не «Бизнес».</strong> На тарифе «Бизнес»
+            8 часов хватает на программирование одной страницы, но верстка и проверка
+            уже не помещаются в лимит. Полное обновление заняло бы около двух месяцев
+            на страницу и растянулось бы на 20 месяцев для 10 страниц.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="development">
+      <div class="container">
+        <div class="section-head">
+          <div class="kicker">Вариант 2</div>
+          <h2>Разработка сайта: обновление единым проектом</h2>
+          <p class="section-desc">
+            Если нужно обновить весь сайт в короткий срок, фиксируем проект
+            по тарифу «Корпоративный сайт».
+          </p>
+        </div>
+
+        <p class="section-intro">
+          В стоимость входят структура, дизайн, адаптивная верстка, программирование,
+          базовая SEO-настройка и запуск.
+        </p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Тариф разработки</th>
+                <th>Стоимость</th>
+                <th>Срок</th>
+                <th>Что входит</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="table-strong">Готовое решение</td>
+                <td>от 19 999 ₽</td>
+                <td>от 7 дней</td>
+                <td>Шаблонное решение, логотип, цвета, формы, SEO-основа</td>
+              </tr>
+              <tr>
+                <td class="table-strong">Сайт-визитка</td>
+                <td>от 99 999 ₽</td>
+                <td>от 10 дней</td>
+                <td>Индивидуальный дизайн, адаптив, блог, карта, SEO, до 10 страниц</td>
+              </tr>
+              <tr class="highlight-row">
+                <td class="table-strong">Корпоративный сайт</td>
+                <td>от 199 999 ₽</td>
+                <td>от 30 дней</td>
+                <td>Индивидуальный дизайн, каталог услуг, интеграции, SEO, до 50 страниц</td>
+              </tr>
+              <tr>
+                <td class="table-strong">Интернет-магазин</td>
+                <td>от 399 999 ₽</td>
+                <td>от 45 дней</td>
+                <td>Каталог, корзина, оплата, поиск и фильтры, до 100 страниц</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="recommended">
+          <div>
+            <h3>Рекомендуемый формат для La Femme</h3>
+            <p>
+              Корпоративный сайт с единой дизайн-системой, шаблонами внутренних страниц,
+              переносом контента и постепенным запуском разделов. Если сайт остаётся
+              в пределах 10 страниц, можно рассмотреть тариф «Сайт-визитка».
+            </p>
+          </div>
+          <div class="recommended-price">
+            <span>Ориентир</span>
+            <b>199 999–249 999 ₽</b>
+            <small>30–45 рабочих дней</small>
+          </div>
+        </div>
+
+        <h3>План работ</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Этап</th>
+                <th>Что делаем</th>
+                <th>Длительность</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="table-strong">01. Аудит и структура</td>
+                <td>Инвентаризация страниц, приоритеты, анализ конкурентов, карта разделов</td>
+                <td>2–3 дня</td>
+              </tr>
+              <tr>
+                <td class="table-strong">02. Прототип</td>
+                <td>Структура страниц, пользовательские сценарии, согласование блоков</td>
+                <td>3–5 дней</td>
+              </tr>
+              <tr>
+                <td class="table-strong">03. Дизайн-система</td>
+                <td>Единые стили, компоненты, шаблоны главной и внутренних страниц</td>
+                <td>7–10 дней</td>
+              </tr>
+              <tr>
+                <td class="table-strong">04. Верстка и программирование</td>
+                <td>Адаптивная верстка, сборка страниц, формы, интеграции</td>
+                <td>10–14 дней</td>
+              </tr>
+              <tr>
+                <td class="table-strong">05. Контент и SEO</td>
+                <td>Перенос текстов и изображений, метатеги, микроразметка, аналитика</td>
+                <td>5–7 дней</td>
+              </tr>
+              <tr>
+                <td class="table-strong">06. Проверка и запуск</td>
+                <td>Кроссбраузерность, мобильные устройства, скорость, обучение, запуск</td>
+                <td>3–5 дней</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Порядок оплаты</h3>
+        <div class="payments">
+          <div class="payment">
+            <b>30%</b>
+            <span>Старт проекта: аудит, прототип и дизайн. Ориентировочно 60 000–75 000 ₽.</span>
+          </div>
+          <div class="payment">
+            <b>40%</b>
+            <span>После согласования дизайна и шаблонов. Ориентировочно 80 000–100 000 ₽.</span>
+          </div>
+          <div class="payment">
+            <b>30%</b>
+            <span>Перед запуском, после проверки и приёмки. Ориентировочно 60 000–75 000 ₽.</span>
+          </div>
+        </div>
+
+        <p class="note">
+          Если нужен только новый дизайн без полной разработки: индивидуальный дизайн —
+          от 41 999 ₽, верстка по готовому макету — от 20 999 ₽. Наполнение контентом —
+          от 1 500 ₽ за страницу.
+        </p>
+      </div>
+    </section>
+
+    <section class="section section--soft" id="compare">
+      <div class="container">
+        <div class="section-head">
+          <div class="kicker">Сравнение</div>
+          <h2>Что выбрать</h2>
+          <p class="section-desc">
+            Для сайта из 10 страниц оба варианта сопоставимы по бюджету. Выбор зависит
+            от того, что важнее: скорость или ежемесячный формат.
+          </p>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Параметр</th>
+                <th>Техподдержка, «Бизнес Плюс»</th>
+                <th>Разработка, корпоративный сайт</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="table-strong">Стартовый платёж</td>
+                <td>25 000 ₽ за первый месяц</td>
+                <td>60 000–75 000 ₽ (30%)</td>
+              </tr>
+              <tr>
+                <td class="table-strong">Срок для 10 страниц</td>
+                <td>8–10 месяцев</td>
+                <td>30–45 рабочих дней</td>
+              </tr>
+              <tr>
+                <td class="table-strong">Ориентировочный бюджет</td>
+                <td>200 000–250 000 ₽</td>
+                <td>199 999–249 999 ₽</td>
+              </tr>
+              <tr>
+                <td class="table-strong">Что получаете сразу</td>
+                <td>Обновление страниц, поддержку и отчётность каждый месяц</td>
+                <td>Новый сайт целиком: структура, дизайн, верстка, SEO-основа</td>
+              </tr>
+              <tr>
+                <td class="table-strong">Гибкость</td>
+                <td>Можно менять приоритеты и останавливаться</td>
+                <td>Объём и сроки фиксируются в договоре</td>
+              </tr>
+              <tr>
+                <td class="table-strong">Риск</td>
+                <td>Дольше; дизайн развивается в рамках шаблона</td>
+                <td>Выше первый платёж; меньше свободы в процессе</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout">
+          <div>
+            <strong>Рекомендуемый сценарий.</strong> Начать с одного месяца поддержки
+            (25 000 ₽): провести аудит, зафиксировать список страниц и обновить первую
+            страницу. После этого будет точная картина по количеству часов — и можно
+            выбрать: продолжать поэтапно или перейти к фиксированному проекту разработки.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="scope">
+      <div class="container">
+        <div class="section-head">
+          <div class="kicker">Границы расчёта</div>
+          <h2>Что входит и что уточняем отдельно</h2>
+          <p class="section-desc">
+            Ниже — состав работ, который заложен в ориентировочную стоимость.
+            Всё, что выходит за эти рамки, согласуем отдельно.
+          </p>
+        </div>
+
+        <div class="two-col">
+          <div class="panel">
+            <h3>Входит в расчёт</h3>
+            <ul class="list">
+              <li>Адаптивная верстка и программирование страниц</li>
+              <li>Использование согласованной дизайн-системы</li>
+              <li>Проверка на мобильных, планшетах и десктопе</li>
+              <li>Базовые SEO-метатеги и микроразметка</li>
+              <li>Мониторинг, бэкапы и обновления в поддержке</li>
+              <li>Ежемесячный отчёт и фиксация часов</li>
+              <li>Приоритетная связь и срочные задачи в рамках лимита</li>
+            </ul>
+          </div>
+
+          <div class="panel panel--exclude">
+            <h3>Уточняется отдельно</h3>
+            <ul class="list">
+              <li>Индивидуальный дизайн с нуля</li>
+              <li>Копирайтинг, фотосъёмка и подбор изображений</li>
+              <li>Сложные интеграции: CRM, 1С, платежи</li>
+              <li>Продвижение и реклама</li>
+              <li>Страницы сверх согласованного объёма</li>
+              <li>Новые сервисы и нестандартные модули</li>
+              <li>Срочные работы вне лимита часов</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--soft" id="next">
+      <div class="container">
+        <div class="section-head">
+          <div class="kicker">Следующий шаг</div>
+          <h2>Как зафиксировать смету</h2>
+          <p class="section-desc">
+            Точная стоимость зависит от количества страниц, состояния контента
+            и наличия уникальных блоков.
+          </p>
+        </div>
+
+        <p class="section-intro">
+          Предлагаем короткий бесплатный аудит и расчёт на его основе. После аудита
+          фиксируем объём, сроки и формат работы.
+        </p>
+
+        <div class="steps">
+          <div class="step">
+            <b>01</b>
+            <span>Аудит</span>
+            <small>Смотрим текущий сайт, страницы и техническое состояние</small>
+          </div>
+          <div class="step">
+            <b>02</b>
+            <span>Объём</span>
+            <small>Фиксируем список страниц и приоритет обновления</small>
+          </div>
+          <div class="step">
+            <b>03</b>
+            <span>Смета</span>
+            <small>Считаем часы, сроки и выбираем формат работы</small>
+          </div>
+          <div class="step">
+            <b>04</b>
+            <span>Договор</span>
+            <small>Фиксируем стоимость, сроки и порядок отчётности</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="container cta__inner">
+        <div>
+          <div class="kicker">Готовы начать?</div>
+          <h2>Обсудим обновление сайта La Femme</h2>
+          <p>
+            Подготовим точный расчёт в течение 24 часов после короткого брифа.
+            Покажем, какие страницы обновлять первыми и какой формат работы выгоднее.
+          </p>
+          <div class="cta__actions">
+            <a class="btn btn--red" href="mailto:info@dart.agency?subject=Обновление%20сайта%20La%20Femme">
+              Получить расчёт
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <a class="btn btn--outline" href="tel:+79991158355">Позвонить</a>
+          </div>
+        </div>
+
+        <div class="cta__card">
+          <span>Контакт</span>
+          <b>Команда DART Agency</b>
+          <p>
+            Обсудим объём, приоритеты и сроки. Ответим на вопросы по тарифам
+            и предложим оптимальный сценарий запуска.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <a class="footer__logo" href="https://dart.agency/" aria-label="DART Agency">
+            <img src="https://dart.agency/assets/templates/dart/img/logo_white.svg" alt="DART Agency" width="371" height="185">
+          </a>
+          <p>
+            WEB-студия в Перми. Разработка сайтов, продвижение и техническая поддержка
+            с 2016 года.
+          </p>
+        </div>
+
+        <div>
+          <div class="footer__title">Контакты</div>
+          <ul class="footer__list">
+            <li><a href="tel:+79991158355">+7 999 115-83-55</a></li>
+            <li><a href="mailto:info@dart.agency">info@dart.agency</a></li>
+            <li>Пермь, ул. Космонавта Беляева, 19, офис 402</li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer__title">Источники тарифов</div>
+          <ul class="footer__list">
+            <li><a href="https://dart.agency/uslugi/texnicheskaya-podderzhka/">Техническая поддержка</a></li>
+            <li><a href="https://dart.agency/uslugi/razrabotka-sajtov/">Разработка сайтов</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <span>© 2026 DART Agency. Все права защищены.</span>
+        <span>
+          Цены и сроки ориентировочные, не являются публичной офертой и подлежат
+          уточнению после аудита. Стоимость указана в рублях.
+        </span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
